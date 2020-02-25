@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+}
+
+.left-col {
+  border: 5px solid coral;
+}
+
+.right-col {
+  border: 5px solid chocolate;
+}
+
+.left-col,
+.right-col {
+  text-align: center;
+}
