@@ -2,12 +2,16 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Quicksand", sans-serif;
+body,
+.favMeals__input,
+.favMeals__button {
+  font: 1.5rem "Quicksand", sans-serif;
 }
 
 .title {
   text-align: center;
+  font-size: 4rem;
+  margin: 50px;
 }
 
 .container {
@@ -17,15 +21,77 @@ body {
   margin: 0 auto;
 }
 
-.left-col {
-  border: 5px solid coral;
-}
-
-.right-col {
-  border: 5px solid chocolate;
-}
-
-.left-col,
-.right-col {
+.favMeals,
+.letsPlan {
   text-align: center;
+  margin: 0 auto;
+}
+
+.favMeals {
+}
+
+.letsPlan {
+}
+
+/* boxes appearance */
+.box {
+  height: 7vh;
+  border-radius: 20px;
+  border: none;
+} 
+
+/* favourite meals "add a meal..." section */
+.favMeals__input {
+  width: 75%;
+  background-color: rgba(241, 148, 138, 0.3);
+  padding-left: 2vw;
+}
+
+.favMeals__input:focus,
+.favMeals__button:focus,
+.favMeals__deleteBtn {
+  outline: none;
+}
+
+.favMeals__button {
+  width: 20%;
+  background-color: rgba(241, 148, 138, 0.6);
+}
+
+.favMeals__button:active {
+  outline: none;
+  background-color: rgba(241, 148, 138, 1);
+}
+
+/* favourite meals list section */
+.favMeals__ul {
+  margin: 3vh auto;
+  padding: 0;
+  display: table;
+}
+
+.favMeals__li {
+  list-style-type: none;
+  width: 95%;
+  background-color: rgba(87, 255, 247, 0.15);
+  font: 1.5rem "Quicksand", sans-serif;
+  margin: 0.7vh auto;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*.li__span {
+  display: table-cell;
+  vertical-align: middle;
+}*/
+
+.favMeals__deleteBtn {
+  vertical-align: middle;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(87, 255, 247, 0.3);
+}
+
+.favMeals__deleteBtn:active {
+  background-color: rgba(87, 255, 247, 1);
 }

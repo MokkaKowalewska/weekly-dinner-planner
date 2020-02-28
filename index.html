@@ -8,9 +8,11 @@
       content="Weekly simple meal planner - a tool developed to help planning everyday meals and to develop my web development skills."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap&subset=latin-ext" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:300&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/style.css" />
-
   </head>
   <body>
     <header>
@@ -18,12 +20,24 @@
     </header>
 
     <div class="container">
-      <div class="left-col">
-        <h2 class="left-col__title">favourite meals</h2>
+      <div class="favMeals">
+        <h2 class="favMeals__title">favourite meals</h2>
+        <form class="favMeals__form">
+        <input
+          type="text"
+          placeholder="add a meal..."
+          class="favMeals__input box"
+        />
+        <input type="submit" value="add" class="favMeals__button box"/>
+      </form>
+        <div class="favMeals__ulWrapper">
+          <ul class="favMeals__ul"></ul>
+        </div>
       </div>
-      <div class="right-col">
-        <h2 class="right-col__title">let's plan!</h2>
+      <div class="letsPlan">
+        <h2 class="letsPlan__title">let's plan!</h2>
       </div>
     </div>
+    <script src="/js/index.js"></script>
   </body>
 </html>
