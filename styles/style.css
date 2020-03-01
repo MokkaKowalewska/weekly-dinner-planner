@@ -14,10 +14,11 @@ body,
   margin: 50px;
 }
 
-.container {
+.gridContainer {
   width: 70vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10vw;
   margin: 0 auto;
 }
 
@@ -25,6 +26,7 @@ body,
 .letsPlan {
   text-align: center;
   margin: 0 auto;
+  width: 100%;
 }
 
 .favMeals {
@@ -36,9 +38,11 @@ body,
 /* boxes appearance */
 .box {
   height: 7vh;
+  min-height: 6vh;
+  max-height: 10vh;
   border-radius: 20px;
   border: none;
-} 
+}
 
 /* favourite meals "add a meal..." section */
 .favMeals__input {
@@ -67,23 +71,23 @@ body,
 .favMeals__ul {
   margin: 3vh auto;
   padding: 0;
-  display: table;
 }
 
 .favMeals__li {
   list-style-type: none;
   width: 95%;
+  /* max-width: uzupełnic? na razie odkładam to */
   background-color: rgba(87, 255, 247, 0.15);
   font: 1.5rem "Quicksand", sans-serif;
   margin: 0.7vh auto;
-  display: table-cell;
+  display: table;
   vertical-align: middle;
 }
 
-/*.li__span {
+.li__span {
   display: table-cell;
   vertical-align: middle;
-}*/
+}
 
 .favMeals__deleteBtn {
   vertical-align: middle;
@@ -94,4 +98,16 @@ body,
 
 .favMeals__deleteBtn:active {
   background-color: rgba(87, 255, 247, 1);
+}
+
+/* Let's plan section */
+.letsPlan__grid {
+  grid-template: repeat(7, auto) / auto 2fr;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 3px;
+}
+
+.day {
+  text-align: start;
 }
