@@ -1,12 +1,12 @@
 let favMeals = [];
 
-// add meals
+
+
 function addMeal(text) {
   const meal = {
     text,
     id: Date.now()
   };
-
   favMeals.push(meal);
 
   // create a meal as li element, create delete button
@@ -20,9 +20,26 @@ function addMeal(text) {
   </li>
   `
   );
+
+  
 }
 
-// listen to "submit" for add a meal to favMeals array
+function addToSelect(text) {
+  const selectMeal = document.querySelectorAll(".selectMeal");
+ for (let j = 0; j < selectMeal.length; j++) {
+    selectMeal[j].insertAdjacentHTML(
+      "beforeend",
+      `
+  <option>${text}</option>
+  `
+    );
+ }
+console.log(selectMeal);
+}
+
+
+
+// listen to "submit" for add a meal to favMeals array and to select
 const form = document.querySelector(".favMeals__form");
 form.addEventListener("submit", event => {
   event.preventDefault();
@@ -33,7 +50,9 @@ form.addEventListener("submit", event => {
     addMeal(text);
     input.value = "";
     input.focus();
+    addToSelect(text);
   }
+  
 });
 
 // delete meals in Favourite meals section
@@ -62,14 +81,16 @@ for (let i = 1; i <= 7; i++) {
   week.push(day);
 }
 
-console.log(week);
-//  mon = 0
-// place dates in appropriate places in HTML
-//function showDate() {
+// place dates in Let's plan col-1
 let days = document.querySelectorAll(".day");
 
-for (let i = 0; i <= 6; i++) {
-  days[i].insertAdjacentHTML("beforeend", `
+for (let i = 0; i < week.length; i++) {
+  days[i].insertAdjacentHTML(
+    "beforeend",
+    `
 <span>${week[i]}</span>
-  `)
+  `
+  );
 }
+
+//make a select input with favMeals array as options
