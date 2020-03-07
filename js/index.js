@@ -71,6 +71,8 @@ ul.addEventListener("click", event => {
   }
 });
 
+//ZROBIĆ DELETE FROM SELECT!!!!
+
 // show current dates in Let's plan section
 let today = new Date();
 let week = [];

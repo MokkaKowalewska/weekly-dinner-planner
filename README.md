@@ -1,7 +1,9 @@
 # Weekly dinner planner
-Simple app, created to help planning dinners for current week. Create a list of your favourite meals and assign them to chosen day of a week! 
+Web application of my own idea, my very first app created entirely by me to practice JS and CSS.
 
-This is my very first app, my version of todo list created to practice JS and CSS.
+It's a simple app, made to help planning dinners for current week. Create a list of your favourite meals and assign them to chosen day of a week!
+
+Please find demo [here](https://mokkakowalewska.github.io/weekly-dinner-planner).
 
 ## Technologies
 Project is created with:
