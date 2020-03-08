@@ -7,7 +7,7 @@ body,
 .favMeals__button,
 .selectMeal,
 .favMeals__li {
-  font-family: "Quicksand", sans-serif;
+  font: 1.2rem "Quicksand", sans-serif;
 }
 
 /* all boxes appearance */
@@ -130,13 +130,10 @@ footer {
   text-decoration: none;
 }
 
-.footer__a:hover {
+.footer__a:hover,
+.footer__a:active,
+.footer__a:focus {
   cursor: pointer;
-  background-color: rgba(138, 43, 226, 1);
-}
-
-.footer__a:active, .footer__a:focus {
-  /* outline: none; */
   background-color: rgba(138, 43, 226, 1);
   color: #fff;
 }
