@@ -123,17 +123,19 @@ footer {
   margin: 50px;
 }
 
-.button {
+.footer__a {
   padding: 20px 40px;
   font: bold 1.5rem "Quicksand", sans-serif;
   background-color: rgba(138, 43, 226, 0.3);
+  text-decoration: none;
 }
 
-button:hover {
+.footer__a:hover {
   background-color: rgba(138, 43, 226, 1);
   cursor: pointer;
 }
 
-.button__a {
-  text-decoration: none;
+.footer__a:focus {
+  outline: none;
+  background-color: salmon;
 }
