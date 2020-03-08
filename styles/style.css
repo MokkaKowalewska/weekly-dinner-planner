@@ -131,9 +131,12 @@ footer {
 }
 
 .footer__a:hover,
-.footer__a:active,
 .footer__a:focus {
   cursor: pointer;
   background-color: rgba(138, 43, 226, 1);
   color: #fff;
+}
+
+.footer__a:active {
+  background-color: rgb(19, 136, 91);
 }
