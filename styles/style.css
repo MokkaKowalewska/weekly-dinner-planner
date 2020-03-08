@@ -6,7 +6,7 @@ body,
 .favMeals__input,
 .favMeals__button,
 .selectMeal {
-  font: 1.5rem "Quicksand", sans-serif;
+  font: "Quicksand", sans-serif;
 }
 
 /* all boxes appearance */
@@ -82,7 +82,7 @@ body,
   list-style-type: none;
   width: 95%;
   background-color: rgba(87, 255, 247, 0.15);
-  font: 1.5rem "Quicksand", sans-serif;
+  font: "Quicksand", sans-serif;
   margin: 0.7vh auto;
   display: table;
   vertical-align: middle;
@@ -125,17 +125,18 @@ footer {
 
 .footer__a {
   padding: 20px 40px;
-  font: bold 1.5rem "Quicksand", sans-serif;
+  font: bold "Quicksand", sans-serif;
   background-color: rgba(138, 43, 226, 0.3);
   text-decoration: none;
 }
 
 .footer__a:hover {
-  background-color: rgba(138, 43, 226, 1);
   cursor: pointer;
+  background-color: rgba(138, 43, 226, 1);
 }
 
-.footer__a:focus {
-  outline: none;
-  background-color: salmon;
+.footer__a:active {
+  /* outline: none; */
+  background-color: rgba(138, 43, 226, 1);
+  color: #fff;
 }
