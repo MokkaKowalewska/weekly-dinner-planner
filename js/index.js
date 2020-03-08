@@ -95,4 +95,4 @@ for (let i = 0; i < week.length; i++) {
   );
 }
 
-//make a select input with favMeals array as options
+

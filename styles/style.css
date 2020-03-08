@@ -62,6 +62,11 @@ body,
   background-color: rgba(241, 148, 138, 0.6);
 }
 
+.favMeals__button:hover {
+  cursor: pointer;
+  background-color: rgba(241, 148, 138, 1);
+}
+
 .favMeals__button:active {
   outline: none;
   background-color: rgba(241, 148, 138, 1);
@@ -111,4 +116,24 @@ body,
 
 .selectMeal {
   background-color: rgba(241, 148, 138, 0.3);
+}
+
+footer {
+  text-align: center;
+  margin: 50px;
+}
+
+.button {
+  padding: 20px 40px;
+  font: bold 1.5rem "Quicksand", sans-serif;
+  background-color: rgba(138, 43, 226, 0.3);
+}
+
+button:hover {
+  background-color: rgba(138, 43, 226, 1);
+  cursor: pointer;
+}
+
+.button__a {
+  text-decoration: none;
 }
