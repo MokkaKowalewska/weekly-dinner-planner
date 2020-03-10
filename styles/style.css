@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  background: rgb(241, 146, 138);
+  background: no-repeat center/100% url(../images/wdp-background.jpg);
+}
+
 body,
 .favMeals__input,
 .favMeals__button,
@@ -16,7 +22,6 @@ body,
   border-radius: 20px;
   border: none;
 }
-
 
 .title {
   text-align: center;
@@ -48,7 +53,7 @@ body,
 /* favourite meals "add a meal..." section */
 .favMeals__input {
   width: 75%;
-  background-color: rgba(241, 148, 138, 0.3);
+  background-color: rgba(230, 184, 179, 0.9);
   padding-left: 2vw;
 }
 
@@ -65,7 +70,7 @@ body,
 
 .favMeals__button:hover {
   cursor: pointer;
-  background-color: rgba(241, 148, 138, 1);
+  background-color: #f1948a;
 }
 
 .favMeals__button:active {
@@ -82,7 +87,7 @@ body,
 .favMeals__li {
   list-style-type: none;
   width: 95%;
-  background-color: rgba(87, 255, 247, 0.15);
+  background-color: rgba(191, 253, 250, 0.9);
   margin: 0.7vh auto;
   display: table;
   vertical-align: middle;
@@ -101,7 +106,7 @@ body,
 }
 
 .favMeals__deleteBtn:active {
-  background-color: rgba(87, 255, 247, 1);
+  background-color: #57fff7;
 }
 
 /* Let's plan section */
