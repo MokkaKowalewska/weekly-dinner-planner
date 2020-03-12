@@ -1,7 +1,5 @@
 let favMeals = [];
 
-
-
 function addMeal(text) {
   const meal = {
     text,
@@ -20,24 +18,19 @@ function addMeal(text) {
   </li>
   `
   );
-
-  
 }
 
 function addToSelect(text) {
   const selectMeal = document.querySelectorAll(".selectMeal");
- for (let j = 0; j < selectMeal.length; j++) {
+  for (let j = 0; j < selectMeal.length; j++) {
     selectMeal[j].insertAdjacentHTML(
       "beforeend",
       `
   <option>${text}</option>
   `
     );
- }
-console.log(selectMeal);
+  }
 }
-
-
 
 // listen to "submit" for add a meal to favMeals array and to select
 const form = document.querySelector(".favMeals__form");
@@ -52,7 +45,6 @@ form.addEventListener("submit", event => {
     input.focus();
     addToSelect(text);
   }
-  
 });
 
 // delete meals in Favourite meals section
@@ -94,5 +86,3 @@ for (let i = 0; i < week.length; i++) {
   `
   );
 }
-
-

@@ -1,5 +1,10 @@
-* {
+*, *:before, *:after {
   box-sizing: border-box;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -13,7 +18,7 @@ body,
 .favMeals__button,
 .selectMeal,
 .favMeals__li {
-  font: 1.2rem "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 /* all boxes appearance */
