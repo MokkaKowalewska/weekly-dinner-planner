@@ -31,7 +31,7 @@ function addMeal(text) {
 }
 
 // function addToSelect(text) {
-  
+
 // }
 
 // listen to "submit" for add a meal to favMeals array and to select
@@ -45,7 +45,6 @@ form.addEventListener("submit", event => {
     addMeal(text);
     input.value = "";
     input.focus();
-    //addToSelect(text);
   }
 });
 
@@ -57,22 +56,16 @@ function deleteMeal(key) {
   mealToDel[1].remove();
 }
 
-// function deleteSelect(key) {
-
-// }
-
 (function deleteBtnClicked() {
-const ul = document.querySelector(".favMeals__ul");
-const deleteBtn = document.querySelector(".favMeals__deleteBtn");
-ul.addEventListener("click", event => {
-  if (event.target.classList.contains("favMeals__deleteBtn")) {
-    const mealKey = event.target.parentElement.dataset.key;
-    deleteMeal(mealKey);
-    // deleteSelect(mealKey;)
-  }
-})
+  const ul = document.querySelector(".favMeals__ul");
+  const deleteBtn = document.querySelector(".favMeals__deleteBtn");
+  ul.addEventListener("click", event => {
+    if (event.target.classList.contains("favMeals__deleteBtn")) {
+      const mealKey = event.target.parentElement.dataset.key;
+      deleteMeal(mealKey);
+    }
+  });
 })();
-
 
 let week = [];
 
@@ -84,7 +77,6 @@ let week = [];
     let day = new Date(today.setDate(first)).toISOString().slice(0, 10);
     week.push(day);
   }
-  
 })();
 
 (function showDates() {
