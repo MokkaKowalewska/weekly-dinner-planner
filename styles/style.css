@@ -23,9 +23,11 @@ body,
 
 /* all boxes appearance */
 .box {
-  max-height: 10vh;
+  min-height: 4.5vh;
+  max-height: 8vh;
   border-radius: 20px;
   border: none;
+ 
 }
 
 .title {
@@ -64,6 +66,15 @@ body,
 
 .favMeals__input:focus,
 .favMeals__button:focus,
+.selectMeal:focus {
+  outline: none;
+  border: 1px solid aquamarine;
+}
+
+.favMeals__button:focus {
+  background-color: #f1948a;
+}
+
 .favMeals__deleteBtn {
   outline: none;
 }
@@ -126,6 +137,7 @@ body,
 
 .selectMeal {
   background-color: rgba(241, 148, 138, 0.3);
+  padding-left: 2vw;
 }
 
 footer {
@@ -145,6 +157,8 @@ footer {
   cursor: pointer;
   background-color: rgba(138, 43, 226, 1);
   color: #fff;
+  outline: none;
+  border: 1px solid aquamarine;
 }
 
 .footer__a:active {

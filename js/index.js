@@ -18,19 +18,21 @@ function addMeal(text) {
   </li>
   `
   );
-}
 
-function addToSelect(text) {
   const selectMeal = document.querySelectorAll(".selectMeal");
   for (let j = 0; j < selectMeal.length; j++) {
     selectMeal[j].insertAdjacentHTML(
       "beforeend",
       `
-  <option>${text}</option>
+  <option data-key="${meal.id}">${meal.text}</option>
   `
     );
   }
 }
+
+// function addToSelect(text) {
+  
+// }
 
 // listen to "submit" for add a meal to favMeals array and to select
 const form = document.querySelector(".favMeals__form");
@@ -43,46 +45,57 @@ form.addEventListener("submit", event => {
     addMeal(text);
     input.value = "";
     input.focus();
-    addToSelect(text);
+    //addToSelect(text);
   }
 });
 
 // delete meals in Favourite meals section
 function deleteMeal(key) {
   favMeals = favMeals.filter(mealToDel => mealToDel.id !== Number(key));
-  const mealToDel = document.querySelector(`[data-key="${key}"]`);
-  mealToDel.remove();
+  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
+  mealToDel[0].remove();
+  mealToDel[1].remove();
 }
 
+// function deleteSelect(key) {
+
+// }
+
+(function deleteBtnClicked() {
 const ul = document.querySelector(".favMeals__ul");
 const deleteBtn = document.querySelector(".favMeals__deleteBtn");
 ul.addEventListener("click", event => {
   if (event.target.classList.contains("favMeals__deleteBtn")) {
     const mealKey = event.target.parentElement.dataset.key;
     deleteMeal(mealKey);
+    // deleteSelect(mealKey;)
   }
-});
+})
+})();
 
-//ZROBIĆ DELETE FROM SELECT!!!!
 
-// show current dates in Let's plan section
-let today = new Date();
 let week = [];
 
-for (let i = 1; i <= 7; i++) {
-  let first = today.getDate() - today.getDay() + i;
-  let day = new Date(today.setDate(first)).toISOString().slice(0, 10);
-  week.push(day);
-}
+(function getDates() {
+  let today = new Date();
 
-// place dates in Let's plan col-1
-let days = document.querySelectorAll(".day");
+  for (let i = 1; i <= 7; i++) {
+    let first = today.getDate() - today.getDay() + i;
+    let day = new Date(today.setDate(first)).toISOString().slice(0, 10);
+    week.push(day);
+  }
+  
+})();
 
-for (let i = 0; i < week.length; i++) {
-  days[i].insertAdjacentHTML(
-    "beforeend",
-    `
+(function showDates() {
+  let days = document.querySelectorAll(".day");
+
+  for (let i = 0; i < week.length; i++) {
+    days[i].insertAdjacentHTML(
+      "beforeend",
+      `
 <span>${week[i]}</span>
   `
-  );
-}
+    );
+  }
+})();
