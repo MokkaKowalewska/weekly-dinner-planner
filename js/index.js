@@ -30,10 +30,6 @@ function addMeal(text) {
   }
 }
 
-// function addToSelect(text) {
-
-// }
-
 // listen to "submit" for add a meal to favMeals array and to select
 const form = document.querySelector(".favMeals__form");
 form.addEventListener("submit", event => {
