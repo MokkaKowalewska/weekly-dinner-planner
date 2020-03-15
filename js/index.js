@@ -30,7 +30,7 @@ function addMeal(text) {
   }
 }
 
-// listen to "submit" for add a meal to favMeals array and to select
+// listen to "submit" for add a meal to left col and right col
 const form = document.querySelector(".favMeals__form");
 form.addEventListener("submit", event => {
   event.preventDefault();
@@ -42,9 +42,9 @@ form.addEventListener("submit", event => {
     input.value = "";
     input.focus();
   }
-});
+}, false);
 
-// delete meals in Favourite meals section
+// delete meal in left col and right col
 function deleteMeal(key) {
   favMeals = favMeals.filter(mealToDel => mealToDel.id !== Number(key));
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
@@ -60,7 +60,7 @@ function deleteMeal(key) {
       const mealKey = event.target.parentElement.dataset.key;
       deleteMeal(mealKey);
     }
-  });
+  }, false);
 })();
 
 let week = [];
@@ -88,4 +88,4 @@ let week = [];
   }
 })();
 
-// comment
+
