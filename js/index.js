@@ -3,7 +3,7 @@ let favMeals = [];
 function addMeal(text) {
   const meal = {
     text,
-    id: Date.now()
+    id: Date.now(),
   };
   favMeals.push(meal);
 
@@ -32,36 +32,47 @@ function addMeal(text) {
 
 // listen to "submit" for add a meal to left col and right col
 const form = document.querySelector(".favMeals__form");
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  const input = document.querySelector(".favMeals__input");
+form.addEventListener(
+  "submit",
+  (event) => {
+    event.preventDefault();
+    const input = document.querySelector(".favMeals__input");
 
-  const text = input.value.trim();
-  if (text !== "") {
-    addMeal(text);
-    input.value = "";
-    input.focus();
-  }
-}, false);
-
-// delete meal in left col and right col
-function deleteMeal(key) {
-  favMeals = favMeals.filter(mealToDel => mealToDel.id !== Number(key));
-  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
-  mealToDel[0].remove();
-  mealToDel[1].remove();
-}
+    const text = input.value.trim();
+    if (text !== "") {
+      addMeal(text);
+      input.value = "";
+      input.focus();
+    }
+  },
+  false
+);
 
 (function deleteBtnClicked() {
   const ul = document.querySelector(".favMeals__ul");
   const deleteBtn = document.querySelector(".favMeals__deleteBtn");
-  ul.addEventListener("click", event => {
-    if (event.target.classList.contains("favMeals__deleteBtn")) {
-      const mealKey = event.target.parentElement.dataset.key;
-      deleteMeal(mealKey);
-    }
-  }, false);
+  ul.addEventListener(
+    "click",
+    (event) => {
+      if (event.target.classList.contains("favMeals__deleteBtn")) {
+        const mealKey = event.target.parentElement.dataset.key;
+        deleteMeal(mealKey);
+      }
+    },
+    false
+  );
 })();
+
+// delete meal in left col and right col
+function deleteMeal(key) {
+  favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
+  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
+  console.log(mealToDel.length);
+
+  for (let i = 0; i < mealToDel.length; i++) {
+    mealToDel[i].remove();
+  }
+}
 
 let week = [];
 
@@ -87,5 +98,3 @@ let week = [];
     );
   }
 })();
-
-

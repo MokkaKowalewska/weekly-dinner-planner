@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -8,9 +10,18 @@
 }
 
 body {
-  height: 100vh;
-  background: rgb(241, 146, 138);
-  background: no-repeat center/100% url(../images/wdp-background.jpg);
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(238, 174, 202, 1) 100%
+  );
+}
+
+@media (min-width: 1000px) {
+  body {
+    background: no-repeat center/100% url(../images/wdp-background.jpg);
+  }
 }
 
 body,
@@ -21,13 +32,12 @@ body,
   font-family: "Quicksand", sans-serif;
 }
 
-/* all boxes appearance */
 .box {
+  /* all boxes appearance */
   min-height: 4.5vh;
   max-height: 8vh;
   border-radius: 20px;
   border: none;
- 
 }
 
 .title {
@@ -37,28 +47,32 @@ body,
 }
 
 .gridContainer {
-  width: 70vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10vw;
-  margin: 0 auto;
+  margin: 0 20px;
 }
 
-.favMeals,
-.letsPlan {
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
+@media (min-width: 1000px) {
+  .gridContainer {
+    margin: 0 auto;
+    width: 70vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10vw;
+  }
 
-.favMeals {
-}
+  .favMeals,
+  .letsPlan {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
 
-.letsPlan {
+  /* @media (max-width: 1000px) {
+  .favMeals__input {
+    width: 100vw;
+  } */
 }
-
-/* favourite meals "add a meal..." section */
 .favMeals__input {
+  /* favourite meals "add a meal..." */
   width: 75%;
   background-color: rgba(230, 184, 179, 0.9);
   padding-left: 2vw;
@@ -66,7 +80,7 @@ body,
 
 .favMeals__input:focus,
 .favMeals__button:focus,
-.selectMeal:focus {
+.selectMeal:focus:hover {
   outline: none;
   border: 1px solid aquamarine;
 }
