@@ -67,11 +67,8 @@ form.addEventListener(
 function deleteMeal(key) {
   favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
-  console.log(mealToDel.length);
 
-  for (let i = 0; i < mealToDel.length; i++) {
-    mealToDel[i].remove();
-  }
+  mealToDel.length = 0;
 }
 
 let week = [];
