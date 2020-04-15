@@ -14,7 +14,7 @@ function addMeal(text) {
     `
   <li class="favMeals__li box" data-key="${meal.id}">
     <span class="li__span">${meal.text}</span>
-    <button class="favMeals__deleteBtn">X</button>
+    <button class="favMeals__deleteBtn"><i class="fas fa-times"></i></button>
   </li>
   `
   );

@@ -9,16 +9,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(238, 174, 202, 1) 100%
-  );
+@media (max-width: 768px) {
+  body {
+    background: #8a2387;
+    background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387);
+    background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+  }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 769px) {
   body {
     background: no-repeat center/100% url(../images/wdp-background.jpg);
   }
@@ -30,11 +29,12 @@ body,
 .selectMeal,
 .favMeals__li {
   font-family: "Quicksand", sans-serif;
+  color: rgb(24, 22, 22);
 }
 
 .box {
   /* all boxes appearance */
-  min-height: 4.5vh;
+  min-height: 20px;
   max-height: 8vh;
   border-radius: 20px;
   border: none;
@@ -50,7 +50,7 @@ body,
   margin: 0 20px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 769px) {
   .gridContainer {
     margin: 0 auto;
     width: 70vw;
@@ -58,23 +58,19 @@ body,
     grid-template-columns: 1fr 1fr;
     gap: 10vw;
   }
-
-  .favMeals,
-  .letsPlan {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* @media (max-width: 1000px) {
-  .favMeals__input {
-    width: 100vw;
-  } */
 }
+
+/* .favMeals,
+.letsPlan {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+} */
+
 .favMeals__input {
   /* favourite meals "add a meal..." */
   width: 75%;
-  background-color: rgba(230, 184, 179, 0.9);
+  background-color: rgba(230, 184, 179, 1);
   padding-left: 2vw;
 }
 
@@ -95,7 +91,7 @@ body,
 
 .favMeals__button {
   width: 20%;
-  background-color: rgba(241, 148, 138, 0.6);
+  background-color: rgba(241, 148, 138, 1);
 }
 
 .favMeals__button:hover {
@@ -110,33 +106,33 @@ body,
 
 /* favourite meals list section */
 .favMeals__ul {
-  margin: 3vh auto;
+  margin: 10px auto;
   padding: 0;
 }
 
 .favMeals__li {
   list-style-type: none;
-  width: 95%;
-  background-color: rgba(191, 253, 250, 0.9);
-  margin: 0.7vh auto;
-  display: table;
-  vertical-align: middle;
-}
-
-.li__span {
-  display: table-cell;
-  vertical-align: middle;
+  width: 60%;
+  background-color: rgba(191, 253, 250, 1);
+  margin: 3px auto;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .favMeals__deleteBtn {
-  vertical-align: middle;
-  border-radius: 20px;
   border: none;
-  background-color: rgba(87, 255, 247, 0.3);
+  background: transparent;
+}
+
+.favMeals__deleteBtn:hover {
+  color: #57fff7;
+  cursor: pointer;
 }
 
 .favMeals__deleteBtn:active {
-  background-color: #57fff7;
+  color: #057973;
 }
 
 /* Let's plan section */
@@ -148,7 +144,7 @@ body,
 }
 
 .selectMeal {
-  background-color: rgba(241, 148, 138, 0.3);
+  background-color: #f1948a;
   padding-left: 2vw;
 }
 
@@ -160,7 +156,7 @@ footer {
 .footer__a {
   padding: 20px 40px;
   font: bold 1.2 rem "Quicksand", sans-serif;
-  background-color: rgba(138, 43, 226, 0.3);
+  background-color: rgb(181, 124, 235);
   text-decoration: none;
 }
 
