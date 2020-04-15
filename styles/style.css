@@ -9,7 +9,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 768px) {
+html {
+  font-size: 20px;
+}
+
+@media (max-width: 1023px) {
   body {
     background: #8a2387;
     background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387);
@@ -17,9 +21,10 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   body {
-    background: no-repeat center/100% url(../images/wdp-background.jpg);
+    background: no-repeat center/100% url(../images/wdp-background.png);
+    background-attachment: fixed;
   }
 }
 
@@ -29,12 +34,13 @@ body,
 .selectMeal,
 .favMeals__li {
   font-family: "Quicksand", sans-serif;
-  color: rgb(24, 22, 22);
+  font-size: 1rem;
+  color: rgb(28, 14, 78);
 }
 
 .box {
   /* all boxes appearance */
-  min-height: 20px;
+  min-height: 30px;
   max-height: 8vh;
   border-radius: 20px;
   border: none;
@@ -50,7 +56,7 @@ body,
   margin: 0 20px;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .gridContainer {
     margin: 0 auto;
     width: 70vw;
@@ -60,18 +66,11 @@ body,
   }
 }
 
-/* .favMeals,
-.letsPlan {
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-} */
-
 .favMeals__input {
   /* favourite meals "add a meal..." */
   width: 75%;
   background-color: rgba(230, 184, 179, 1);
-  padding-left: 2vw;
+  padding-left: 15px;
 }
 
 .favMeals__input:focus,
@@ -83,10 +82,6 @@ body,
 
 .favMeals__button:focus {
   background-color: #f1948a;
-}
-
-.favMeals__deleteBtn {
-  outline: none;
 }
 
 .favMeals__button {
@@ -112,7 +107,7 @@ body,
 
 .favMeals__li {
   list-style-type: none;
-  width: 60%;
+  width: 75%;
   background-color: rgba(191, 253, 250, 1);
   margin: 3px auto;
   padding: 5px 15px;
@@ -124,6 +119,8 @@ body,
 .favMeals__deleteBtn {
   border: none;
   background: transparent;
+  outline: none;
+  background: url(/images/deleteBtn.svg);
 }
 
 .favMeals__deleteBtn:hover {
@@ -145,7 +142,8 @@ body,
 
 .selectMeal {
   background-color: #f1948a;
-  padding-left: 2vw;
+  padding-left: 10px;
+  cursor: pointer;
 }
 
 footer {

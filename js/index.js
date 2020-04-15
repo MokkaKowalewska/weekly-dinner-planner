@@ -14,7 +14,9 @@ function addMeal(text) {
     `
   <li class="favMeals__li box" data-key="${meal.id}">
     <span class="li__span">${meal.text}</span>
-    <button class="favMeals__deleteBtn"><i class="fas fa-times"></i></button>
+    <button class="favMeals__deleteBtn">
+    <img src="/images/deleteBtn.svg" alt="Delete button">
+    </button>
   </li>
   `
   );
@@ -68,7 +70,13 @@ function deleteMeal(key) {
   favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
 
-  mealToDel.length = 0;
+  console.log(mealToDel.length);
+
+  for (let i = 0; i < mealToDel.length; i++) {
+    mealToDel[i].remove();
+  }
+
+  console.log(mealToDel.length);
 }
 
 let week = [];
