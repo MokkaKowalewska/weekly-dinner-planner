@@ -99,15 +99,15 @@ body,
 .favMeals__input {
   /* favourite meals "add a meal..." */
   width: 75%;
-  background-color: rgba(230, 184, 179, 1);
+  background-color: rgb(219, 213, 219);
   padding-left: 15px;
 }
 
 .favMeals__input:focus,
 .favMeals__button:focus,
-.selectMeal:focus:hover {
+.selectMeal:focus {
   outline: none;
-  border: 1px solid aquamarine;
+  border: 1px solid rgb(0, 211, 141);
 }
 
 .favMeals__button:focus {
@@ -119,14 +119,19 @@ body,
   background-color: rgba(241, 148, 138, 1);
 }
 
-.favMeals__button:hover {
+.favMeals__button:hover,
+.selectMeal:hover {
   cursor: pointer;
-  background-color: #f1948a;
+  background-color: rgb(197, 95, 83);
+}
+
+.selectMeal:focus {
+  outline: none;
+  background-color: rgb(197, 95, 83);
 }
 
 .favMeals__button:active {
-  outline: none;
-  background-color: rgba(241, 148, 138, 1);
+  background-color: rgb(143, 69, 60);
 }
 
 /* favourite meals list section */
