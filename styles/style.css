@@ -2,6 +2,8 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -11,6 +13,10 @@
 
 html {
   font-size: 20px;
+}
+
+body {
+  width: 100vw;
 }
 
 @media (max-width: 1023px) {
@@ -49,8 +55,29 @@ body,
 
 .title {
   text-align: center;
-  font-size: 4rem;
-  margin: 50px;
+}
+
+.favMeals__title,
+.letsPlan__title {
+  margin: 30px auto;
+}
+
+@media (max-width: 1023px) {
+  .title {
+    font-size: 2rem;
+    margin: 30px auto;
+  }
+  .favMeals,
+  .letsPlan {
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 4rem;
+    margin: 50px;
+  }
 }
 
 .gridContainer {
@@ -121,7 +148,7 @@ body,
   border: none;
   background: transparent;
   outline: none;
-  background: url(/images/deleteBtn.svg);
+  height: 10px;
 }
 
 .favMeals__deleteBtn:hover {
@@ -165,7 +192,7 @@ footer {
   background-color: rgba(138, 43, 226, 1);
   color: #fff;
   outline: none;
-  border: 1px solid aquamarine;
+  border: 1px solid rgb(37, 173, 128);
 }
 
 .footer__a:active {
