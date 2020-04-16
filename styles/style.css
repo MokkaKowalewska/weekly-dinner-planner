@@ -91,6 +91,8 @@ body,
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10vw;
+    backdrop-filter: blur(4px);
+    padding: 0 50px 50px 50px;
   }
 }
 
@@ -172,29 +174,4 @@ body,
   background-color: #f1948a;
   padding-left: 10px;
   cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  margin: 50px;
-}
-
-.footer__a {
-  padding: 20px 40px;
-  font: bold 1.2 rem "Quicksand", sans-serif;
-  background-color: rgb(181, 124, 235);
-  text-decoration: none;
-}
-
-.footer__a:hover,
-.footer__a:focus {
-  cursor: pointer;
-  background-color: rgba(138, 43, 226, 1);
-  color: #fff;
-  outline: none;
-  border: 1px solid rgb(37, 173, 128);
-}
-
-.footer__a:active {
-  background-color: rgb(19, 136, 91);
 }
