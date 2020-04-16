@@ -18,6 +18,7 @@ html {
     background: #8a2387;
     background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387);
     background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+    background-size: cover;
   }
 }
 
