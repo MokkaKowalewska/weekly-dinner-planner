@@ -1,3 +1,22 @@
+function createLetsPlan() {
+  //create all "let's plan" content
+  let letsPlanGrid = document.querySelector("letsPlan__grid"),
+    frag = document.createDocumentFragment();
+  row = document.createElement("div");
+
+  for (let i = 1; i <= 7; i++) {
+    row.insertAdjacentHTML(
+      "beforeend",
+      `<div class="day"></div>
+    <select class="selectMeal box">
+      <option value="" disabled selected>choose meal...</option></select>`
+    );
+    console.dir(row);
+  }
+}
+
+createLetsPlan();
+
 let favMeals = [];
 
 function addMeal(text) {

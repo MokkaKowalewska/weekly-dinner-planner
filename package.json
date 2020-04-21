@@ -1,0 +1,23 @@
+{
+  "name": "weekly-dinner-planner",
+  "version": "1.0.0",
+  "description": "Web application of my own idea, my very first app created entirely by me to practice JS and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MokkaKowalewska/weekly-dinner-planner.git"
+  },
+  "author": "Monika Kowalewska",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MokkaKowalewska/weekly-dinner-planner/issues"
+  },
+  "homepage": "https://github.com/MokkaKowalewska/weekly-dinner-planner#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}
