@@ -17,22 +17,8 @@ html {
 
 body {
   width: 100vw;
-}
-
-@media (max-width: 1023px) {
-  body {
-    background: #8a2387;
-    background: -webkit-linear-gradient(to right, #f27121, #e94057, #8a2387);
-    background: linear-gradient(to right, #f27121, #e94057, #8a2387);
-    background-size: cover;
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    background: no-repeat center/100% url(../images/wdp-background.png);
-    background-attachment: fixed;
-  }
+  background: no-repeat center url(../images/wdp-background.png);
+  background-attachment: fixed;
 }
 
 body,
@@ -84,7 +70,7 @@ body,
   margin: 0 20px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .gridContainer {
     margin: 0 auto;
     width: 70vw;
