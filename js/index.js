@@ -1,3 +1,5 @@
+import print from "print-js";
+
 let favMeals = [];
 
 function addMeal(text) {
@@ -100,4 +102,10 @@ const week = [];
   `,
     );
   }
+}());
+
+(function toPdf() {
+  const letsPlan = document.querySelector(".letsPlan__grid");
+
+  letsPlan.getPDF();
 }());
