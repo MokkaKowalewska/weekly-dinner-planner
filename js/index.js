@@ -1,22 +1,3 @@
-function createLetsPlan() {
-  //create all "let's plan" content
-  let letsPlanGrid = document.querySelector("letsPlan__grid"),
-    frag = document.createDocumentFragment();
-  row = document.createElement("div");
-
-  for (let i = 1; i <= 7; i++) {
-    row.insertAdjacentHTML(
-      "beforeend",
-      `<div class="day"></div>
-    <select class="selectMeal box">
-      <option value="" disabled selected>choose meal...</option></select>`
-    );
-    console.dir(row);
-  }
-}
-
-createLetsPlan();
-
 let favMeals = [];
 
 function addMeal(text) {
@@ -35,7 +16,7 @@ function addMeal(text) {
     <span class="li__span">${meal.text}</span>
     <button class="favMeals__deleteBtn">x</button>
   </li>
-  `
+  `,
   );
 
   const selectMeal = document.querySelectorAll(".selectMeal");
@@ -44,12 +25,12 @@ function addMeal(text) {
       "beforeend",
       `
   <option data-key="${meal.id}">${meal.text}</option>
-  `
+  `,
     );
   }
 }
 
-// listen to "submit" for add a meal to left col and right col
+// add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
 form.addEventListener(
   "submit",
@@ -64,12 +45,22 @@ form.addEventListener(
       input.focus();
     }
   },
-  false
+  false,
 );
+
+// delete meal in "favourite meals" and "let's plan" sections
+function deleteMeal(key) {
+  favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
+  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
+
+  for (let i = 0; i < mealToDel.length; i++) {
+    mealToDel[i].remove();
+  }
+}
 
 (function deleteBtnClicked() {
   const ul = document.querySelector(".favMeals__ul");
-  const deleteBtn = document.querySelector(".favMeals__deleteBtn");
+
   ul.addEventListener(
     "click",
     (event) => {
@@ -78,45 +69,35 @@ form.addEventListener(
         deleteMeal(mealKey);
       }
     },
-    false
+    false,
   );
-})();
+}());
 
-// delete meal in left col and right col
-function deleteMeal(key) {
-  favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
-  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
-
-  console.log(mealToDel.length);
-
-  for (let i = 0; i < mealToDel.length; i++) {
-    mealToDel[i].remove();
-  }
-
-  console.log(mealToDel.length);
-}
-
-let week = [];
+const week = [];
 
 (function getDates() {
-  let today = new Date();
+  const today = new Date();
+
 
   for (let i = 1; i <= 7; i++) {
-    let first = today.getDate() - today.getDay() + i;
-    let day = new Date(today.setDate(first)).toISOString().slice(0, 10);
+    const monday = today.getDate() - today.getDay() + i;
+    const options = {
+      weekday: "short", year: "numeric", month: "long", day: "numeric",
+    };
+    const day = new Date(today.setDate(monday)).toLocaleDateString("en-EN", options);
     week.push(day);
   }
-})();
+}());
 
 (function showDates() {
-  let days = document.querySelectorAll(".day");
+  const days = document.querySelectorAll(".day");
 
   for (let i = 0; i < week.length; i++) {
     days[i].insertAdjacentHTML(
       "beforeend",
       `
 <span>${week[i]}</span>
-  `
+  `,
     );
   }
-})();
+}());
