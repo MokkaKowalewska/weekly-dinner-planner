@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css?family=Quicksand:400&display=swap&subset=latin-ext"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <script
       src="https://kit.fontawesome.com/143ac2990d.js"
       crossorigin="anonymous"
@@ -42,7 +42,7 @@
       </div>
       <div class="letsPlan">
         <h2 class="letsPlan__title">let's plan!</h2>
-        <div class="letsPlan__grid">
+        <div class="letsPlan__grid" id="letsPlan">
           <div class="day"></div>
           <select class="selectMeal box">
             <option value="" disabled selected>choose meal...</option></select
@@ -72,8 +72,12 @@
             <option value="" disabled selected>choose meal...</option></select
           >
         </div>
+        <button class="printBtn">
+          Print it!
+        </button>
       </div>
     </div>
-    <script src="js/index.js" type="module"></script>
+    <script src="https://unpkg.com/printd/printd.umd.min.js"></script>
+    <script src="bundle.js" type="module"></script>
   </body>
 </html>
