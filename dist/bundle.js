@@ -267,25 +267,16 @@ form.addEventListener("submit", (e) => {
     message += `${days[i].textContent} - ${meals[i].value}</br>`;
   }
 
-  console.dir(message);
-
   const formdata = new FormData();
   formdata.append("email", email.value);
   formdata.append("message", message);
 
-  for (const pair of formdata.entries()) {
-    console.log(`${pair[0]}, ${pair[1]}`);
-  }
-
-
   const ajax = new XMLHttpRequest();
-
   ajax.open("POST", "send-email.php", true);
   ajax.send(formdata);
-
   ajax.onreadystatechange = function () {
-    if (ajax.readyState == 4 && ajax.status == 200) {
-      if (ajax.responseText == "success") {
+    if (ajax.readyState === 4 && ajax.status === 200) {
+      if (ajax.responseText === "success") {
         status.innerHTML = ajax.responseText;
         emailWrapper.innerHTML = "Yay! Your plan is waiting for You in Your inbox!";
       } else {
