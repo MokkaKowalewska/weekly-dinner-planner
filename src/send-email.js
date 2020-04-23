@@ -17,9 +17,11 @@ form.addEventListener("submit", (e) => {
   formdata.append("email", email.value);
 
   for (let i = 0; i < days.length; i++) {
-    formdata.append(`row${i}`, days[i].textContent);
-    formdata.append(`row${i}`, meals[i].value);
-    console.log(formdata);
+    formdata.append(`row${i}`, `${days[i].textContent} - ${meals[i].value}<br>`);
+  }
+
+  for (const pair of formdata.entries()) {
+    console.log(`${pair[0]}, ${pair[1]}`);
   }
 
 
