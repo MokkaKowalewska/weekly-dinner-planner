@@ -45,7 +45,7 @@
         <form class="form" method="POST">
         <div class="letsPlan__grid" id="letsPlan">
 
-          <label for="mon" class="day"></label>
+          <label for="mon" class="monday day"></label>
           <select id="mon" class="selectMeal box">
             <option value="" disabled selected>choose meal...</option></select
           >
@@ -75,17 +75,18 @@
           >
         </div>
 
-
+        <div class="emailWrapper">
           <p class="form__p">Send me my plan via email:</p>
           <label for="email" class="form__label">esmail</label>
-          <input type="email" name="email" id="email" class="form__email">
+          <input type="email" name="email" id="email" class="form__email" pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
           <div class="form__permission">
-            <input type="checkbox" name="checkbox" id="checkbox" class="permission__checkbox">
+            <input type="checkbox" name="checkbox" id="checkbox" class="permission__checkbox" required>
             <label for="checkbox" class="permission__label">
               I agree to receive the email from Weekly Dinner Planner by Monika Kowalewska. Email will be used once and won't be processed anymore. Consent is voluntary. I have the right to withdraw my consent at any time. I have the right to access, rectify, delete or limit processing of the data, the right to object, the right to submit a complaint to the supervisory authority or transfer the data. The administrator is Monika Kowalewska. The administrator processes data following the Privacy Policy.
             </label>
           </div>
-          <input type="submit" name="form__btn" class="form__btn" value="Send it!">
+          <input type="submit" name="form__btn" class="form__btn" value="Send it!"><span class="form__status"></span>
+        </div>
         </form>
     </div>
     <script src="bundle.js" type="module"></script>
