@@ -1,4 +1,4 @@
-import fetchAPI from "./src/fetchAPI";
+import fetchAPI from "./fetch-api";
 
 let favMeals = [];
 

@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/fetch-api.js":
+/*!**************************!*\
+  !*** ./src/fetch-api.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+function fetchAPI() {
+  fetch("https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=cheese&number=5")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (fetchAPI);
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -95,7 +118,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module './src/fetchAPI'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
 
 let favMeals = [];
@@ -202,7 +225,7 @@ const week = [];
   }
 }());
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module './src/fetchAPI'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 
 /***/ })
