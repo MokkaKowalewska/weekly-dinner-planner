@@ -261,12 +261,17 @@ form.addEventListener("submit", (e) => {
   submitBtn.disabled = true;
   status.innerHTML = "sending...";
 
-  const formdata = new FormData();
-  formdata.append("email", email.value);
+  let message = "";
 
   for (let i = 0; i < days.length; i++) {
-    formdata.append(`row${i}`, `${days[i].textContent} - ${meals[i].value}<br>`);
+    message += `${days[i].textContent} - ${meals[i].value}</br>`;
   }
+
+  console.dir(message);
+
+  const formdata = new FormData();
+  formdata.append("email", email.value);
+  formdata.append("message", message);
 
   for (const pair of formdata.entries()) {
     console.log(`${pair[0]}, ${pair[1]}`);
@@ -275,14 +280,14 @@ form.addEventListener("submit", (e) => {
 
   const ajax = new XMLHttpRequest();
 
-  ajax.open("POST", "contact-form.php", true);
+  ajax.open("POST", "send-email.php", true);
   ajax.send(formdata);
 
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4 && ajax.status == 200) {
       if (ajax.responseText == "success") {
         status.innerHTML = ajax.responseText;
-        emailWrapper.innerHTML = `Thank You for Your message, ${name.value}!`;
+        emailWrapper.innerHTML = "Yay! Your plan is waiting for You in Your inbox!";
       } else {
         status.innerHTML = ajax.responseText;
         submitBtn.disabled = false;
