@@ -1,5 +1,7 @@
 import fetchAPI from "./fetch-api";
 
+require("./send-email.js");
+
 let favMeals = [];
 
 function addMeal(text) {
@@ -104,4 +106,20 @@ const week = [];
   }
 }());
 
-fetchAPI();
+// fetchAPI();
+
+// TO DELETE
+const days = document.querySelectorAll(".day");
+const meals = document.querySelectorAll(".selectMeal");
+
+console.dir(days);
+console.dir(meals);
+
+const formdata = new FormData();
+formdata.append("email", email.value);
+
+for (let i = 0; i < days.length; i++) {
+  formdata.append(`row${i}`, days[i].textContent);
+  formdata.append(`row${i}`, meals[i].value);
+  console.log(formdata);
+}
