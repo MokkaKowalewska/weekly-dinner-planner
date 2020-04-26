@@ -111,18 +111,20 @@ const getRecipies = async (keyword) => {
 
 getRecipies("pasta").then(((data) => {
   const { results: APIrecipies } = data;
-  // const {
-  //   title: APItitle, sourceUrl: APIsourceUrl, readyInMinutes: APIreadyIn, servings: APIservings,
-  // } = APIrecipiesArr;
   const titles = document.querySelectorAll(".recipe__title");
   const urls = document.querySelectorAll(".recipe__url");
   const readyIns = document.querySelectorAll(".recipe__readyIn");
   const servings = document.querySelectorAll(".recipe__servings");
 
 
-  console.log(APIrecipies[0].title);
+  console.log(APIrecipies);
 
-  titles[i].textContent = APIrecipies[i].title;
+  APIrecipies.forEach((value, i) => {
+    titles[i].textContent = APIrecipies[i].title;
+    urls[i].textContent = APIrecipies[i].sourceUrl;
+    readyIns[i].textContent = APIrecipies[i].readyInMinutes;
+    servings[i].textContent = APIrecipies[i].servings;
+  });
 }));
 
 console.trace();
