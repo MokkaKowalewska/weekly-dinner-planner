@@ -118,10 +118,9 @@ getRecipies("pasta").then(((data) => {
   console.log(APIrecipies.id);
   const imgSize = "240x150";
   const imgType = "jpg";
-  const imgURL = `${imgBaseURL}${APIrecipies.id}-${imgSize}.${imgType}`;
 
   APIrecipies.forEach((value, i) => {
-    imgs[i].src = imgURL;
+    imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
     urls[i].textContent = APIrecipies[i].title;
     urls[i].href = APIrecipies[i].sourceUrl;
     readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
