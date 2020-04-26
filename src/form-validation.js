@@ -19,7 +19,7 @@ export default class ValidateForm {
   realtimeValidation() {
     this.inputs.forEach((input) => {
       input.addEventListener(
-        "keyup", debounce((event) => {
+        "keyup", (event) => {
           const testedInput = event.target;
           const { validity } = testedInput;
 
@@ -35,7 +35,6 @@ export default class ValidateForm {
             testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
           }
         }),
-      );
     }, false);
   }
 
