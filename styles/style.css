@@ -183,3 +183,20 @@ body,
   font-size: 0.5rem;
   line-height: 0.5rem;
 }
+
+/* getInspired section */
+
+.getInspired {
+  margin: 0 20px;
+}
+
+@media (min-width: 1200px) {
+  .getInspired {
+    display: flex;
+    width: 70vw;
+  }
+}
+.recipe__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
