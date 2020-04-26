@@ -39,13 +39,12 @@ body,
   border: none;
 }
 
-.title {
-  text-align: center;
+.sectionTitle {
+  margin: 30px auto;
 }
 
-.favMeals__title,
-.letsPlan__title {
-  margin: 30px auto;
+.title {
+  text-align: center;
 }
 
 @media (max-width: 1023px) {
@@ -70,23 +69,22 @@ body,
   margin: 0 20px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .gridContainer {
-    margin: 0 auto;
-    width: 70vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10vw;
     backdrop-filter: blur(4px);
+    display: grid;
+    gap: 5vh 10vw;
+    grid-template: repeat(2, auto) / 1fr 1fr;
+    margin: 0 auto;
     padding: 0 50px 50px 50px;
+    width: 70vw;
   }
 }
 
 .favMeals__input {
-  /* favourite meals "add a meal..." */
-  width: 75%;
   background-color: rgb(219, 213, 219);
   padding-left: 15px;
+  width: 75%;
 }
 
 .favMeals__input:focus,
@@ -187,16 +185,21 @@ body,
 /* getInspired section */
 
 .getInspired {
+  grid-column: 1 / span 2;
   margin: 0 20px;
 }
 
 @media (min-width: 1200px) {
-  .getInspired {
+  .getInspired__recipies {
     display: flex;
-    width: 70vw;
   }
 }
 .recipe__title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
+}
+
+.recipe {
+  background: rgba(250, 128, 114, 0.3);
+  padding: 15px;
 }
