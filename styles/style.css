@@ -185,21 +185,32 @@ body,
 
 .getInspired {
   grid-column: 1 / span 2;
-  margin: 0 20px;
 }
 
 @media (min-width: 1000px) {
   .getInspired__recipies {
-    display: flex;
-    /* flex-wrap: wrap; */
+    display: grid;
+    columns: repeat(3, 100px);
+    justify-items: center;
+    grid-template: auto / repeat(3, 20vw);
+    gap: 5px;
+    margin: 0 auto;
   }
 }
-.recipe__title {
-  font-size: 1rem;
-  font-weight: bold;
+.recipe__img {
+  display: block;
+  width: 180px;
+  border-radius: 20px;
+  margin: 10px auto;
 }
 
 .recipe {
   background: rgba(250, 128, 114, 0.3);
   padding: 15px;
+  width: 20vw;
+}
+
+.APIreadyIn,
+.APIservings {
+  font-weight: bold;
 }

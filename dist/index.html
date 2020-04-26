@@ -43,84 +43,114 @@
       <div class="letsPlan">
         <h2 class="letsPlan__title sectionTitle">let's plan!</h2>
         <form class="form" method="POST">
-        <div class="letsPlan__grid" id="letsPlan">
-
-          <label for="mon" class="day"></label>
-          <select id="mon" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="tue" class="day"></label>
-          <select id="tue" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="wed" class="day"></label>
-          <select id="wed" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="thu" class="day"></label>
-          <select id="thu" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="fri" class="day"></label>
-          <select id="fri" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="sat" class="day"></label>
-          <select id="sat" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
-          <label for="sun" class="day"></label>
-          <select id="sun" class="selectMeal box">
-            <option value="" disabled selected>choose meal...</option></select
-          >
+          <div class="letsPlan__grid" id="letsPlan">
+            <label for="mon" class="day"></label>
+            <select id="mon" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="tue" class="day"></label>
+            <select id="tue" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="wed" class="day"></label>
+            <select id="wed" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="thu" class="day"></label>
+            <select id="thu" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="fri" class="day"></label>
+            <select id="fri" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="sat" class="day"></label>
+            <select id="sat" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
+            <label for="sun" class="day"></label>
+            <select id="sun" class="selectMeal box">
+              <option value="" disabled selected>choose meal...</option></select
+            >
           </div>
 
-        <div class="emailWrapper">
-          <p class="form__p">Send me my plan via email:</p>
-          <label for="email" class="form__label">email</label>
-          <input type="email" name="email" id="email" class="form__email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
-          <div class="form__permission">
-            <input type="checkbox" name="checkbox" id="checkbox" class="permission__checkbox" required>
-            <label for="checkbox" class="permission__label">
-              I agree to receive the email from Weekly Dinner Planner by Monika Kowalewska. Email will be used once and won't be processed anymore. Consent is voluntary. I have the right to withdraw my consent at any time. I have the right to access, rectify, delete or limit processing of the data, the right to object, the right to submit a complaint to the supervisory authority or transfer the data. The administrator is Monika Kowalewska. The administrator processes data following the Privacy Policy.
-            </label>
+          <div class="emailWrapper">
+            <p class="form__p">Send me my plan via email:</p>
+            <label for="email" class="form__label">email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form__email"
+              pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+              required
+            />
+            <div class="form__permission">
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="checkbox"
+                class="permission__checkbox"
+                required
+              />
+              <label for="checkbox" class="permission__label">
+                I agree to receive the email from Weekly Dinner Planner by
+                Monika Kowalewska. Email will be used once and won't be
+                processed anymore. Consent is voluntary. I have the right to
+                withdraw my consent at any time. I have the right to access,
+                rectify, delete or limit processing of the data, the right to
+                object, the right to submit a complaint to the supervisory
+                authority or transfer the data. The adistrator is Monika
+                Kowalewska. The adistrator processes data following the Privacy
+                Policy.
+              </label>
+            </div>
+            <input
+              type="submit"
+              name="form__btn"
+              class="form__btn"
+              value="Send it!"
+            /><span class="form__status"></span>
           </div>
-          <input type="submit" name="form__btn" class="form__btn" value="Send it!"><span class="form__status"></span>
-        </div>
         </form>
       </div>
 
-    <section class="getInspired">
-      <h2 class="getInspired__title sectionTitle">get inspired</h2>
-      <div class="getInspired__recipies">
-        <div class="recipe box">
-           <a href="" class="recipe__url"></a>
-          <p class="recipe__readyIn"></p>
-          <p class="recipe__servings"></p>
+      <section class="getInspired">
+        <h2 class="getInspired__title sectionTitle">get inspired</h2>
+        <div class="getInspired__recipies">
+          <div class="recipe box">
+            <img src="" alt="Food photo" class="recipe__img" />
+            <a href="" class="APIurl"></a>
+            <p class="recipe__readyIn">
+              cooking time: <span class="APIreadyIn">min</span>
+            </p>
+            <p class="recipe__servings">
+              servings: <span class="APIservings">min</span>
+            </p>
+          </div>
+          <div class="recipe box">
+            <img src="" alt="Food photo" class="recipe__img" />
+            <a href="" class="APIurl"></a>
+            <p class="recipe__readyIn">
+              cooking time: <span class="APIreadyIn">min</span>
+            </p>
+            <p class="recipe__servings">
+              servings: <span class="APIservings">min</span>
+            </p>
+          </div>
+          <div class="recipe box">
+            <img src="" alt="Food photo" class="recipe__img" />
+            <a href="" class="APIurl"></a>
+            <p class="recipe__readyIn">
+              cooking time: <span class="APIreadyIn">min</span>
+            </p>
+            <p class="recipe__servings">
+              servings: <span class="APIservings">min</span>
+            </p>
+          </div>
         </div>
-        <div class="recipe box">
-          <a href="" class="recipe__url"></a>
-          <p class="recipe__readyIn"></p>
-          <p class="recipe__servings"></p>
-        </div>
-        <div class="recipe box">
-           <a href="" class="recipe__url"></a>
-          <p class="recipe__readyIn">sd</p>
-          <p class="recipe__servings">sd</p>
-        </div>
-        <div class="recipe box">
-           <a href="" class="recipe__url"></a>
-          <p class="recipe__readyIn"></p>
-          <p class="recipe__servings"></p>
-        </div>
-        <div class="recipe box">
-           <a href="" class="recipe__url"></a>
-          <span class="recipe__readyIn"></span>
-          <span class="recipe__servings"></p>
-        </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
     <script src="bundle.js" type="module"></script>
   </body>
 </html>
