@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
 const imgBaseURL = "https://spoonacular.com/recipeImages/";
 
-const getRecipies = async (keyword = dinner) => {
+const getRecipies = async (keyword = "dinner") => {
   try {
     const response = await fetch(`${baseURL}${keyword}&number=3`);
     const data = await response.json();
@@ -114,8 +114,8 @@ const getRecipies = async (keyword = dinner) => {
       imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
       urls[i].textContent = APIrecipies[i].title;
       urls[i].href = APIrecipies[i].sourceUrl;
-      readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
-      servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
+      readyIns[i].textContent = APIrecipies[i].readyInMinutes;
+      servings[i].textContent = APIrecipies[i].servings;
     });
   } catch (err) {
     console.error(err);
@@ -142,6 +142,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
 
+Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
 let favMeals = [];
 
 function addMeal(text) {
@@ -150,7 +152,7 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
-  Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(meal.text);
+  Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(favMeals[favMeals.length - 1].text);
 
 
   // create a meal as li element, create delete button
