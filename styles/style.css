@@ -12,7 +12,7 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 body {
@@ -27,12 +27,8 @@ body,
 .selectMeal,
 .favMeals__li {
   font-family: "Quicksand", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: rgb(28, 14, 78);
-}
-
-p {
-  font-size: 0.8rem;
 }
 
 .box {
@@ -42,17 +38,13 @@ p {
   border: none;
 }
 
-.sectionTitle {
-  margin: 30px auto;
-}
-
 .title {
   text-align: center;
 }
 
 @media (max-width: 1023px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 30px auto;
   }
   .favMeals,
@@ -84,6 +76,10 @@ p {
   }
 }
 
+.sectionTitle {
+  margin: 30px auto;
+}
+
 .favMeals__input {
   background-color: rgb(219, 213, 219);
   padding-left: 15px;
@@ -97,8 +93,8 @@ p {
   border: 1px solid rgb(0, 211, 141);
 }
 
-.favMeals__button:focus {
-  background-color: #f1948a;
+.selectMeal:focus {
+  background-color: rgb(197, 95, 83);
 }
 
 .favMeals__button {
@@ -106,14 +102,13 @@ p {
   background-color: rgba(241, 148, 138, 1);
 }
 
+.favMeals__button:focus {
+  background-color: #f1948a;
+}
+
 .favMeals__button:hover,
 .selectMeal:hover {
   cursor: pointer;
-  background-color: rgb(197, 95, 83);
-}
-
-.selectMeal:focus {
-  outline: none;
   background-color: rgb(197, 95, 83);
 }
 
@@ -186,7 +181,6 @@ p {
 }
 
 /* getInspired section */
-
 .getInspired {
   grid-column: 1 / span 2;
 }
@@ -206,6 +200,12 @@ p {
   margin-bottom: 0;
 }
 
+.recipe {
+  background: rgba(250, 128, 114, 0.3);
+  padding: 15px;
+  width: 20vw;
+}
+
 .recipe__img {
   display: block;
   width: 180px;
@@ -213,10 +213,7 @@ p {
   margin: 10px auto;
 }
 
-.recipe {
-  background: rgba(250, 128, 114, 0.3);
-  padding: 15px;
-  width: 20vw;
+.recipe__link {
 }
 
 .APIreadyIn,
