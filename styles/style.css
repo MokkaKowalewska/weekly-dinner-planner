@@ -27,7 +27,7 @@ body,
 .selectMeal,
 .favMeals__li {
   font-family: "Quicksand", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: rgb(28, 14, 78);
 }
 
@@ -40,11 +40,20 @@ body,
 
 .title {
   text-align: center;
+  animation-delay: 1s;
 }
 
-@media (max-width: 1023px) {
+.favMeals {
+  animation-delay: 0.5s;
+}
+
+.letsPlan {
+  animation-delay: 0.8s;
+}
+
+@media (max-width: 999px) {
   .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: 30px auto;
   }
   .favMeals,
@@ -53,9 +62,9 @@ body,
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1000px) {
   .title {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin: 50px;
   }
 }
@@ -200,9 +209,15 @@ body,
   margin-bottom: 0;
 }
 
+.getInspired__caption {
+  font-size: 0.9rem;
+  width: 30vw;
+}
+
 .recipe {
   background: rgba(250, 128, 114, 0.3);
   padding: 15px;
+  text-align: center;
   width: 20vw;
 }
 
@@ -214,6 +229,20 @@ body,
 }
 
 .recipe__link {
+  background: #057973;
+  border-radius: 20px;
+  color: white;
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 5px auto;
+  padding: 2px 6px;
+  text-decoration: none;
+}
+
+.recipe__link:focus,
+.recipe__link:hover {
+  background: #47a39f;
 }
 
 .APIreadyIn,
