@@ -34,7 +34,6 @@ body,
 .box {
   /* all boxes appearance */
   min-height: 30px;
-  max-height: 8vh;
   border-radius: 20px;
   border: none;
 }
@@ -189,9 +188,10 @@ body,
   margin: 0 20px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .getInspired__recipies {
     display: flex;
+    /* flex-wrap: wrap; */
   }
 }
 .recipe__title {
