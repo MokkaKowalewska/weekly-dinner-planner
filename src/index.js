@@ -1,6 +1,7 @@
 import fetchAPI from "./fetch-api";
 
 require("./send-email.js");
+require("./fetch-api");
 
 let favMeals = [];
 
@@ -105,12 +106,3 @@ const week = [];
     );
   }
 }());
-
-// fetchAPI();
-
-// TO DELETE
-const days = document.querySelectorAll(".day");
-const meals = document.querySelectorAll(".selectMeal");
-
-console.dir(days);
-console.dir(meals);

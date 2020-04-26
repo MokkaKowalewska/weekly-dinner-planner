@@ -90,21 +90,42 @@
 /*!**************************!*\
   !*** ./src/fetch-api.js ***!
   \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
+const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
+const baseImageURL = "https://spoonacular.com/recipeImages/";
 
-function fetchAPI() {
-  fetch("https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=cheese&number=5")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-}
+const getRecipies = async (keyword) => {
+  try {
+    const response = await fetch(`${baseURL}${keyword}&number=5`);
+    const data = await response.json();
 
-/* harmony default export */ __webpack_exports__["default"] = (fetchAPI);
+    console.log(data);
+
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+getRecipies("pasta").then(((data) => {
+  const { results: APIrecipies } = data;
+  // const {
+  //   title: APItitle, sourceUrl: APIsourceUrl, readyInMinutes: APIreadyIn, servings: APIservings,
+  // } = APIrecipiesArr;
+  const titles = document.querySelectorAll(".recipe__title");
+  const urls = document.querySelectorAll(".recipe__url");
+  const readyIns = document.querySelectorAll(".recipe__readyIn");
+  const servings = document.querySelectorAll(".recipe__servings");
+
+
+  console.log(APIrecipies[0].title);
+
+  titles[i].textContent = APIrecipies[i].title;
+}));
+
+console.trace();
 
 
 /***/ }),
@@ -119,9 +140,11 @@ function fetchAPI() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
+/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_fetch_api__WEBPACK_IMPORTED_MODULE_0__);
 
 
 __webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
+__webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
 let favMeals = [];
 
@@ -227,15 +250,6 @@ const week = [];
   }
 }());
 
-// fetchAPI();
-
-// TO DELETE
-const days = document.querySelectorAll(".day");
-const meals = document.querySelectorAll(".selectMeal");
-
-console.dir(days);
-console.dir(meals);
-
 
 /***/ }),
 
@@ -243,50 +257,56 @@ console.dir(meals);
 /*!***************************!*\
   !*** ./src/send-email.js ***!
   \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 const form = document.querySelector(".form");
 
-form.addEventListener("submit", (e) => {
-  const status = document.querySelector(".form__status");
-  const submitBtn = document.querySelector(".form__btn");
-  const emailWrapper = document.querySelector(".emailWrapper");
-  const email = document.getElementById("email");
-  const days = document.querySelectorAll(".day");
-  const meals = document.querySelectorAll(".selectMeal");
+function sendEmail() {
+  form.addEventListener("submit", (e) => {
+    const status = document.querySelector(".form__status");
+    const submitBtn = document.querySelector(".form__btn");
+    const emailWrapper = document.querySelector(".emailWrapper");
+    const email = document.getElementById("email");
+    const days = document.querySelectorAll(".day");
+    const meals = document.querySelectorAll(".selectMeal");
 
-  e.preventDefault();
+    e.preventDefault();
 
-  submitBtn.disabled = true;
-  status.innerHTML = "sending...";
+    submitBtn.disabled = true;
+    status.innerHTML = "sending...";
 
-  let message = "";
+    let message = "";
 
-  for (let i = 0; i < days.length; i++) {
-    message += `${days[i].textContent} - ${meals[i].value}</br>`;
-  }
-
-  const formdata = new FormData();
-  formdata.append("email", email.value);
-  formdata.append("message", message);
-
-  const ajax = new XMLHttpRequest();
-  ajax.open("POST", "send-email.php", true);
-  ajax.send(formdata);
-  ajax.onreadystatechange = function () {
-    if (ajax.readyState === 4 && ajax.status === 200) {
-      if (ajax.responseText === "success") {
-        status.innerHTML = ajax.responseText;
-        emailWrapper.innerHTML = "Yay! Your plan is waiting for You in Your inbox!";
-      } else {
-        status.innerHTML = ajax.responseText;
-        submitBtn.disabled = false;
-      }
+    for (let i = 0; i < days.length; i++) {
+      message += `${days[i].textContent} - ${meals[i].value}</br>`;
     }
-  };
-},
-false);
+
+    const formdata = new FormData();
+    formdata.append("email", email.value);
+    formdata.append("message", message);
+
+    const ajax = new XMLHttpRequest();
+    ajax.open("POST", "send-email.php", true);
+    ajax.send(formdata);
+    ajax.onreadystatechange = function () {
+      if (ajax.readyState === 4 && ajax.status === 200) {
+        if (ajax.responseText === "success") {
+          status.innerHTML = ajax.responseText;
+          emailWrapper.innerHTML = "Yay! Your plan is waiting for You in Your inbox!";
+        } else {
+          status.innerHTML = ajax.responseText;
+          submitBtn.disabled = false;
+        }
+      }
+    };
+  },
+  false);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (sendEmail);
 
 
 /***/ })
