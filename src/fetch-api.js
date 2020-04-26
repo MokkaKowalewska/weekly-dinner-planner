@@ -1,9 +1,9 @@
 const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
-const baseImageURL = "https://spoonacular.com/recipeImages/";
+const imgBaseURL = "https://spoonacular.com/recipeImages/;
 
 const getRecipies = async (keyword) => {
   try {
-    const response = await fetch(`${baseURL}${keyword}&number=5`);
+    const response = await fetch(`${baseURL}${keyword}&number=3`);
     const data = await response.json();
 
     console.log(data);
@@ -16,20 +16,21 @@ const getRecipies = async (keyword) => {
 
 getRecipies("pasta").then(((data) => {
   const { results: APIrecipies } = data;
-  const titles = document.querySelectorAll(".recipe__title");
-  const urls = document.querySelectorAll(".recipe__url");
-  const readyIns = document.querySelectorAll(".recipe__readyIn");
-  const servings = document.querySelectorAll(".recipe__servings");
-
-
-  console.log(APIrecipies);
+  const imgs = document.querySelectorAll(".recipe__img");
+  const urls = document.querySelectorAll(".APIurl");
+  const readyIns = document.querySelectorAll(".APIreadyIn");
+  const servings = document.querySelectorAll(".APIservings");
+  console.log(APIrecipies.id);
+  const imgSize = "240x150";
+  const imgType = "jpg";
+  const imgURL = `${imgBaseURL}${APIrecipies.id}-${imgSize}.${imgType}`;
 
   APIrecipies.forEach((value, i) => {
-    // titles[i].insertAdjacentHTML("beforeend", APIrecipies[i].title);
+    imgs[i].src = imgURL;
     urls[i].textContent = APIrecipies[i].title;
     urls[i].href = APIrecipies[i].sourceUrl;
-    readyIns[i].insertAdjacentHTML("beforeend", APIrecipies[i].readyInMinutes);
-    servings[i].insertAdjacentHTML("beforeend", APIrecipies[i].servings);
+    readyIns[i].insertAdjacentHTML("afterbegin", APIrecipies[i].readyInMinutes);
+    servings[i].insertAdjacentHTML("afterbegin", APIrecipies[i].servings);
   });
 }));
 
