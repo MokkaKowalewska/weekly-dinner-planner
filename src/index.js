@@ -1,7 +1,6 @@
-import fetchAPI from "./fetch-api";
+import getRecipies from "./fetch-api";
 
 require("./send-email.js");
-require("./fetch-api");
 
 let favMeals = [];
 
@@ -11,6 +10,8 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
+  getRecipies(meal.text);
+
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");

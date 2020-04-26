@@ -1,36 +1,29 @@
 const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
 const imgBaseURL = "https://spoonacular.com/recipeImages/";
 
-const getRecipies = async (keyword) => {
+const getRecipies = async (keyword = dinner) => {
   try {
     const response = await fetch(`${baseURL}${keyword}&number=3`);
     const data = await response.json();
+    const { results: APIrecipies } = data;
+    const imgs = document.querySelectorAll(".recipe__img");
+    const urls = document.querySelectorAll(".APIurl");
+    const readyIns = document.querySelectorAll(".APIreadyIn");
+    const servings = document.querySelectorAll(".APIservings");
+    const imgSize = "240x150";
+    const imgType = "jpg";
 
-    console.log(data);
-
-    return data;
+    APIrecipies.forEach((value, i) => {
+      imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
+      urls[i].textContent = APIrecipies[i].title;
+      urls[i].href = APIrecipies[i].sourceUrl;
+      readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
+      servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
+    });
   } catch (err) {
     console.error(err);
   }
 };
 
-getRecipies("pasta").then(((data) => {
-  const { results: APIrecipies } = data;
-  const imgs = document.querySelectorAll(".recipe__img");
-  const urls = document.querySelectorAll(".APIurl");
-  const readyIns = document.querySelectorAll(".APIreadyIn");
-  const servings = document.querySelectorAll(".APIservings");
-  console.log(APIrecipies.id);
-  const imgSize = "240x150";
-  const imgType = "jpg";
 
-  APIrecipies.forEach((value, i) => {
-    imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
-    urls[i].textContent = APIrecipies[i].title;
-    urls[i].href = APIrecipies[i].sourceUrl;
-    readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
-    servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
-  });
-}));
-
-console.trace();
+export default getRecipies;

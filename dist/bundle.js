@@ -90,45 +90,40 @@
 /*!**************************!*\
   !*** ./src/fetch-api.js ***!
   \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
 const imgBaseURL = "https://spoonacular.com/recipeImages/";
 
-const getRecipies = async (keyword) => {
+const getRecipies = async (keyword = dinner) => {
   try {
     const response = await fetch(`${baseURL}${keyword}&number=3`);
     const data = await response.json();
+    const { results: APIrecipies } = data;
+    const imgs = document.querySelectorAll(".recipe__img");
+    const urls = document.querySelectorAll(".APIurl");
+    const readyIns = document.querySelectorAll(".APIreadyIn");
+    const servings = document.querySelectorAll(".APIservings");
+    const imgSize = "240x150";
+    const imgType = "jpg";
 
-    console.log(data);
-
-    return data;
+    APIrecipies.forEach((value, i) => {
+      imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
+      urls[i].textContent = APIrecipies[i].title;
+      urls[i].href = APIrecipies[i].sourceUrl;
+      readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
+      servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
+    });
   } catch (err) {
     console.error(err);
   }
 };
 
-getRecipies("pasta").then(((data) => {
-  const { results: APIrecipies } = data;
-  const imgs = document.querySelectorAll(".recipe__img");
-  const urls = document.querySelectorAll(".APIurl");
-  const readyIns = document.querySelectorAll(".APIreadyIn");
-  const servings = document.querySelectorAll(".APIservings");
-  console.log(APIrecipies.id);
-  const imgSize = "240x150";
-  const imgType = "jpg";
 
-  APIrecipies.forEach((value, i) => {
-    imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
-    urls[i].textContent = APIrecipies[i].title;
-    urls[i].href = APIrecipies[i].sourceUrl;
-    readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
-    servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
-  });
-}));
-
-console.trace();
+/* harmony default export */ __webpack_exports__["default"] = (getRecipies);
 
 
 /***/ }),
@@ -143,11 +138,9 @@ console.trace();
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
-/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_fetch_api__WEBPACK_IMPORTED_MODULE_0__);
 
 
 __webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
-__webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
 let favMeals = [];
 
@@ -157,6 +150,8 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
+  Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(meal.text);
+
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");

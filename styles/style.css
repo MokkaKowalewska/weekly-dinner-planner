@@ -216,14 +216,14 @@ body,
 
 .recipe {
   background: rgba(250, 128, 114, 0.3);
-  padding: 15px;
+  padding: 1vw;
   text-align: center;
   width: 20vw;
 }
 
 .recipe__img {
   display: block;
-  width: 180px;
+  width: 18vw;
   border-radius: 20px;
   margin: 10px auto;
 }
