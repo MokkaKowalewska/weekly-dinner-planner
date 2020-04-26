@@ -1,5 +1,5 @@
 const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
-const imgBaseURL = "https://spoonacular.com/recipeImages/;
+const imgBaseURL = "https://spoonacular.com/recipeImages/";
 
 const getRecipies = async (keyword) => {
   try {
@@ -29,8 +29,8 @@ getRecipies("pasta").then(((data) => {
     imgs[i].src = imgURL;
     urls[i].textContent = APIrecipies[i].title;
     urls[i].href = APIrecipies[i].sourceUrl;
-    readyIns[i].insertAdjacentHTML("afterbegin", APIrecipies[i].readyInMinutes);
-    servings[i].insertAdjacentHTML("afterbegin", APIrecipies[i].servings);
+    readyIns[i].insertAdjacentText("afterbegin", APIrecipies[i].readyInMinutes);
+    servings[i].insertAdjacentText("afterbegin", APIrecipies[i].servings);
   });
 }));
 
