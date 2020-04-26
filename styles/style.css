@@ -31,6 +31,10 @@ body,
   color: rgb(28, 14, 78);
 }
 
+p {
+  font-size: 0.8rem;
+}
+
 .box {
   /* all boxes appearance */
   min-height: 30px;
@@ -194,9 +198,14 @@ body,
     justify-items: center;
     grid-template: auto / repeat(3, 20vw);
     gap: 5px;
-    margin: 0 auto;
+    margin: 20px auto;
   }
 }
+
+.getInspired__title {
+  margin-bottom: 0;
+}
+
 .recipe__img {
   display: block;
   width: 180px;
