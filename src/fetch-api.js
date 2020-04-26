@@ -25,10 +25,11 @@ getRecipies("pasta").then(((data) => {
   console.log(APIrecipies);
 
   APIrecipies.forEach((value, i) => {
-    titles[i].textContent = APIrecipies[i].title;
-    urls[i].textContent = APIrecipies[i].sourceUrl;
-    readyIns[i].textContent = APIrecipies[i].readyInMinutes;
-    servings[i].textContent = APIrecipies[i].servings;
+    // titles[i].insertAdjacentHTML("beforeend", APIrecipies[i].title);
+    urls[i].textContent = APIrecipies[i].title;
+    urls[i].href = APIrecipies[i].sourceUrl;
+    readyIns[i].insertAdjacentHTML("beforeend", APIrecipies[i].readyInMinutes);
+    servings[i].insertAdjacentHTML("beforeend", APIrecipies[i].servings);
   });
 }));
 
