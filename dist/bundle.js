@@ -154,7 +154,7 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
-  Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(meal.text);
+
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");
@@ -190,6 +190,7 @@ form.addEventListener(
     const text = input.value.trim();
     if (text !== "") {
       addMeal(text);
+      Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(text);
       input.value = "";
       input.focus();
     }
