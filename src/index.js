@@ -39,6 +39,7 @@ function addMeal(text) {
 
 // add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
+
 form.addEventListener(
   "submit",
   (event) => {
@@ -61,9 +62,7 @@ function deleteMeal(key) {
   favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
 
-  for (let i = 0; i < mealToDel.length; i++) {
-    mealToDel[i].remove();
-  }
+  mealToDel.forEach.remove();
 }
 
 (function deleteBtnClicked() {
