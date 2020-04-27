@@ -110,6 +110,8 @@ const getRecipies = async (keyword = "dinner") => {
     const imgSize = "240x150";
     const imgType = "jpg";
 
+    if (APIrecipies.length === 0) { getRecipies("idea"); return; }
+
     APIrecipies.forEach((value, i) => {
       imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
       urls[i].textContent = APIrecipies[i].title;
