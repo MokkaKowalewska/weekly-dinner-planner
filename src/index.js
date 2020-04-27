@@ -12,8 +12,7 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
-  getRecipies(favMeals[favMeals.length - 1].text);
-
+  getRecipies(meal.text);
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");
