@@ -4,7 +4,8 @@
   "description": "Web application of my own idea, my very first app created entirely by me to practice JS and CSS.",
   "main": "src/index.js",
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "animate.css": "^3.7.2"
+    "animate.css": "^3.7.2",
+    "path": "^0.12.7"
   }
 }

@@ -4,8 +4,8 @@ import { sendEmail } from "./send-email";
 export default class ValidateForm {
   constructor(form, inputsClassName, errorMsgClassName, messages) {
     this.form = form;
-    this.inputs = form.querySelector(inputsClassName);
-    this.errorMsgList = document.querySelector(errorMsgClassName);
+    this.inputs = form.querySelectorAll(inputsClassName);
+    this.errorMsgList = document.querySelectorAll(errorMsgClassName);
     this.messages = messages;
     this.noValidate();
     this.realtimeValidation();
@@ -23,10 +23,10 @@ export default class ValidateForm {
   }
 
   inputsValidation(testedInput) {
-    const { validity } = testedInput;
+    let { validity } = testedInput;
 
     // eslint-disable-next-line no-restricted-syntax
-    for (const violetion in validity) {
+    for (let violetion in validity) {
       if (validity[violetion] === true && violetion !== "valid") {
         this.displayErrors(testedInput, violetion);
         testedInput.nextElementSibling.style.webkitTextFillColor = "#ff2424";
@@ -40,12 +40,14 @@ export default class ValidateForm {
 
 
   realtimeValidation() {
-    this.input.addEventListener(
-      "blur", (e) => {
-        this.inputsValidation(e.target);
-      },
-      false,
-    );
+    this.inputs.forEach((input) => {
+      input.addEventListener(
+        "blur", (e) => {
+          this.inputsValidation(e.target);
+        },
+        false,
+      );
+    });
   }
 
 
@@ -53,9 +55,11 @@ export default class ValidateForm {
     this.form.addEventListener(
       "submit", (e) => {
         e.preventDefault();
-        inputsValidation(this.input);
+        console.log(this.inputs);
+        this.inputs.forEach((input) => {
+          this.inputsValidation(input);
+        });
       }, false,
     );
-    // if validity check is ok - sendEmail
   }
 }
