@@ -87,24 +87,20 @@
             />
             <p class="form__errorMsg"></p>
             <div class="form__permission">
-              <input
-                type="checkbox"
-                name="checkbox"
-                id="checkbox"
-                class="permission__checkbox validate"
-                required
-              />
               <label for="checkbox" class="permission__label">
-                I agree to receive the email from Weekly Dinner Planner by
-                Monika Kowalewska. Email will be used once and won't be
-                processed anymore. Consent is voluntary. I have the right to
-                withdraw my consent at any time. I have the right to access,
-                rectify, delete or limit processing of the data, the right to
-                object, the right to submit a complaint to the supervisory
-                authority or transfer the data. The adistrator is Monika
-                Kowalewska. The adistrator processes data following the Privacy
-                Policy.
+                <input
+                  type="checkbox"
+                  name="permission"
+                  id="checkbox"
+                  value="true"
+                  class="permission__checkbox validate"
+                  required
+                />
+                I agree to receive an email from Weekly Dinner Planner by Monika
+                Kowalewska. Email address will be used once and will not be
+                processed anymore.
               </label>
+              <p class="form__errorMsg"></p>
             </div>
             <input
               type="submit"
