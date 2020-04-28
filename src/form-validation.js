@@ -36,13 +36,10 @@ export default class ValidateForm {
   inputsValidation(testedInput) {
     const { validity } = testedInput;
 
-    console.log(testedInput.validity);
-
     if (!testedInput.checkValidity()) {
       // eslint-disable-next-line prefer-const
       for (let violetion in validity) {
         if (validity[violetion] === true && violetion !== "valid") {
-          console.log(violetion);
           this.displayErrors(testedInput, violetion);
         }
       }
@@ -51,7 +48,6 @@ export default class ValidateForm {
 
 
     this.displayErrors(testedInput, "check");
-    // testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
   }
 
 
@@ -59,7 +55,6 @@ export default class ValidateForm {
     this.inputs.forEach((input) => {
       input.addEventListener(
         "blur", (e) => {
-          console.log(event);
           this.inputsValidation(e.target);
         },
         false,
@@ -77,7 +72,7 @@ export default class ValidateForm {
           this.inputsValidation(input);
         });
 
-        if (this.inputs.forEach((input) => input.checkValidity)) {
+        if (this.inputs[0].checkValidity() && this.inputs[1].checkValidity()) {
           sendEmail();
         }
       }, false,
