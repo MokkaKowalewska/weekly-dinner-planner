@@ -17,7 +17,7 @@ html {
 
 body {
   width: 100vw;
-  background: no-repeat center url(../images/wdp-background.png);
+  background: no-repeat center/100% url(../images/wdp-background.png);
   background-attachment: fixed;
 }
 
@@ -101,7 +101,7 @@ body,
 .favMeals__input,
 .form__email {
   background-color: rgb(219, 213, 219);
-  padding-left: 15px;
+  padding: 0 15px;
   width: 75%;
 }
 
@@ -196,23 +196,15 @@ body,
 }
 
 .form__permission {
-  display: flex;
   margin: 10px auto;
-}
-
-.permission__checkbox {
-  display: block;
-}
-
-.permission__label {
-  margin-left: 5px;
-  display: block;
-  font-size: 0.5rem;
-  line-height: 0.5rem;
 }
 
 .form__errorMsg:empty {
   display: none;
+}
+
+.form__status {
+  margin: 0 10px;
 }
 
 /* getInspired section */
@@ -234,9 +226,11 @@ body,
   .recipe {
     width: 20vw;
   }
+
   .recipe__img {
     width: 18vw;
   }
+
   .recipe__link {
     display: block;
   }
