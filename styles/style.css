@@ -25,7 +25,16 @@ body,
 .favMeals__input,
 .favMeals__button,
 .selectMeal,
-.favMeals__li {
+.favMeals__li,
+.form__email,
+.form__btn {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  color: rgb(28, 14, 78);
+}
+
+/* zamienić powyższe na poniższą klasę */
+.inputBtnFont {
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   color: rgb(28, 14, 78);
@@ -89,7 +98,8 @@ body,
   margin: 30px auto;
 }
 
-.favMeals__input {
+.favMeals__input,
+.form__email {
   background-color: rgb(219, 213, 219);
   padding-left: 15px;
   width: 75%;
@@ -97,7 +107,8 @@ body,
 
 .favMeals__input:focus,
 .favMeals__button:focus,
-.selectMeal:focus {
+.selectMeal:focus,
+.form__email:focus {
   outline: none;
   border: 1px solid rgb(0, 211, 141);
 }
@@ -106,8 +117,9 @@ body,
   background-color: rgb(197, 95, 83);
 }
 
-.favMeals__button {
-  width: 20%;
+.favMeals__button,
+.form__btn {
+  padding: 0 10px;
   background-color: rgba(241, 148, 138, 1);
 }
 
@@ -116,12 +128,14 @@ body,
 }
 
 .favMeals__button:hover,
-.selectMeal:hover {
+.selectMeal:hover,
+.form__btn:hover {
   cursor: pointer;
   background-color: rgb(197, 95, 83);
 }
 
-.favMeals__button:active {
+.favMeals__button:active,
+.form__btn:active {
   background-color: rgb(143, 69, 60);
 }
 
@@ -172,14 +186,17 @@ body,
   cursor: pointer;
 }
 
-.sendEmail {
+.emailWrapper {
   margin: 15px 0;
   font-size: 0.8rem;
 }
 
-.sendEmail__permission {
+.form__email {
+  margin: 5px;
+}
+
+.form__permission {
   display: flex;
-  flex-wrap: nowrap;
   margin: 10px auto;
 }
 
