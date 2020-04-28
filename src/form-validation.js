@@ -45,12 +45,13 @@ export default class ValidateForm {
           console.log(violetion);
           this.displayErrors(testedInput, violetion);
         }
-        return;
       }
-
-      this.displayErrors(testedInput, "check");
-      // testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
+      return;
     }
+
+
+    this.displayErrors(testedInput, "check");
+    // testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
   }
 
 
