@@ -55,10 +55,14 @@ export default class ValidateForm {
     this.form.addEventListener(
       "submit", (e) => {
         e.preventDefault();
-        console.log(this.inputs);
+
         this.inputs.forEach((input) => {
           this.inputsValidation(input);
         });
+
+        if (this.inputs.forEach(input => input.checkValidity)) {
+          sendEmail();
+        }
       }, false,
     );
   }
