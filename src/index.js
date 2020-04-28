@@ -21,7 +21,7 @@ function addMeal(text) {
     `
   <li class="favMeals__li box" data-key="${meal.id}">
     <span class="li__span">${meal.text}</span>
-    <button class="favMeals__deleteBtn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg></button>
+    <svg class="favMeals__deleteBtn" aria-label="Delete button" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg>
   </li>
   `,
   );
@@ -59,10 +59,19 @@ form.addEventListener(
 
 // delete meal in "favourite meals" and "let's plan" sections
 function deleteMeal(key) {
-  favMeals = favMeals.filter((mealToDel) => mealToDel.id !== Number(key));
+  console.log("filteadasdr");
+  favMeals = favMeals.filter((mealToDel) => {
+    mealToDel.id !== Number(key);
+    console.log(Number(key));
+  });
+  console.log("filter");
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
+  console.dir(mealToDel);
 
-  mealToDel.forEach.remove();
+  for (let i = 0; i < mealToDel.length; i++) {
+    console.log("petla");
+    mealToDel[i].remove();
+  }
 }
 
 (function deleteBtnClicked() {
@@ -72,11 +81,14 @@ function deleteMeal(key) {
     "click",
     (event) => {
       if (event.target.classList.contains("favMeals__deleteBtn")) {
+        console.dir(event.target.parentElement);
         const mealKey = event.target.parentElement.dataset.key;
+        console.log(mealKey);
         deleteMeal(mealKey);
+        console.log("i dalej");
       }
     },
-    false,
+    true,
   );
 }());
 
