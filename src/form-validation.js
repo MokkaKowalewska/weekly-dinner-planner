@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 import { sendEmail } from "./send-email";
 
@@ -18,23 +19,37 @@ export default class ValidateForm {
 
   displayErrors(inputValidated, violetion) {
     const input = inputValidated;
+    console.dir(input);
+
+    if (input.type === "checkbox") {
+      input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+      input.parentNode.nextElementSibling.textContent = this.messages[violetion];
+      input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
+      return;
+    }
+
+    input.nextElementSibling.style.webkitTextFillColor = "#ff2424";
     input.nextElementSibling.textContent = this.messages[violetion];
     input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
   }
 
   inputsValidation(testedInput) {
-    let { validity } = testedInput;
+    const { validity } = testedInput;
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (let violetion in validity) {
-      if (validity[violetion] === true && violetion !== "valid") {
-        this.displayErrors(testedInput, violetion);
-        testedInput.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+    console.log(testedInput.validity);
+
+    if (!testedInput.checkValidity()) {
+      // eslint-disable-next-line prefer-const
+      for (let violetion in validity) {
+        if (validity[violetion] === true && violetion !== "valid") {
+          console.log(violetion);
+          this.displayErrors(testedInput, violetion);
+        }
         return;
       }
 
       this.displayErrors(testedInput, "check");
-      testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
+      // testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
     }
   }
 
@@ -43,6 +58,7 @@ export default class ValidateForm {
     this.inputs.forEach((input) => {
       input.addEventListener(
         "blur", (e) => {
+          console.log(event);
           this.inputsValidation(e.target);
         },
         false,
@@ -60,7 +76,7 @@ export default class ValidateForm {
           this.inputsValidation(input);
         });
 
-        if (this.inputs.forEach(input => input.checkValidity)) {
+        if (this.inputs.forEach((input) => input.checkValidity)) {
           sendEmail();
         }
       }, false,

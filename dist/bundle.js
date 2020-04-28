@@ -189,6 +189,7 @@ const getRecipies = async (keyword = "dinner") => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ValidateForm; });
 /* harmony import */ var _send_email__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-email */ "./src/send-email.js");
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 
 
@@ -209,23 +210,37 @@ class ValidateForm {
 
   displayErrors(inputValidated, violetion) {
     const input = inputValidated;
+    console.dir(input);
+
+    if (input.type === "checkbox") {
+      input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+      input.parentNode.nextElementSibling.textContent = this.messages[violetion];
+      input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
+      return;
+    }
+
+    input.nextElementSibling.style.webkitTextFillColor = "#ff2424";
     input.nextElementSibling.textContent = this.messages[violetion];
     input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
   }
 
   inputsValidation(testedInput) {
-    let { validity } = testedInput;
+    const { validity } = testedInput;
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (let violetion in validity) {
-      if (validity[violetion] === true && violetion !== "valid") {
-        this.displayErrors(testedInput, violetion);
-        testedInput.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+    console.log(testedInput.validity);
+
+    if (!testedInput.checkValidity()) {
+      // eslint-disable-next-line prefer-const
+      for (let violetion in validity) {
+        if (validity[violetion] === true && violetion !== "valid") {
+          console.log(violetion);
+          this.displayErrors(testedInput, violetion);
+        }
         return;
       }
 
       this.displayErrors(testedInput, "check");
-      testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
+      // testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
     }
   }
 
@@ -234,6 +249,7 @@ class ValidateForm {
     this.inputs.forEach((input) => {
       input.addEventListener(
         "blur", (e) => {
+          console.log(event);
           this.inputsValidation(e.target);
         },
         false,
@@ -246,10 +262,14 @@ class ValidateForm {
     this.form.addEventListener(
       "submit", (e) => {
         e.preventDefault();
-        console.log(this.inputs);
+
         this.inputs.forEach((input) => {
           this.inputsValidation(input);
         });
+
+        if (this.inputs.forEach((input) => input.checkValidity)) {
+          Object(_send_email__WEBPACK_IMPORTED_MODULE_0__["sendEmail"])();
+        }
       }, false,
     );
   }
@@ -279,9 +299,6 @@ __webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 
-
-  
-
 // add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
 
@@ -301,7 +318,6 @@ form.addEventListener(
   },
   false,
 );
-
 
 
 const week = [];
@@ -340,7 +356,7 @@ const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",
   typeMismatch: "It doesn't look like email address...",
   patternMismatch: "It doesn't look like email address...",
-  check: "Check!",
+  check: "",
 };
 
 new _form_validation__WEBPACK_IMPORTED_MODULE_2__["default"](emailForm, ".validate", ".form__errorMsg", messages);
@@ -352,11 +368,12 @@ new _form_validation__WEBPACK_IMPORTED_MODULE_2__["default"](emailForm, ".valida
 /*!***************************!*\
   !*** ./src/send-email.js ***!
   \***************************/
-/*! exports provided: default */
+/*! exports provided: sendEmail */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendEmail", function() { return sendEmail; });
 const form = document.querySelector(".form");
 
 function sendEmail() {
@@ -401,7 +418,7 @@ function sendEmail() {
   false);
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (sendEmail);
+
 
 
 /***/ })

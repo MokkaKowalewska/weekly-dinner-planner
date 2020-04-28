@@ -7,9 +7,6 @@ require("./send-email.js");
 getRecipies();
 
 
-
-  
-
 // add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
 
@@ -29,7 +26,6 @@ form.addEventListener(
   },
   false,
 );
-
 
 
 const week = [];
@@ -68,7 +64,7 @@ const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",
   typeMismatch: "It doesn't look like email address...",
   patternMismatch: "It doesn't look like email address...",
-  check: "Check!",
+  check: "",
 };
 
 new ValidateForm(emailForm, ".validate", ".form__errorMsg", messages);
