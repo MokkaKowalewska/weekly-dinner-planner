@@ -1,5 +1,5 @@
 import getRecipies from "./fetch-api";
-import addMeal from "./add-meal";
+import { addMeal } from "./add-meal";
 import ValidateForm from "./form-validation";
 
 require("./send-email.js");

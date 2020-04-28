@@ -90,12 +90,14 @@
 /*!*************************!*\
   !*** ./src/add-meal.js ***!
   \*************************/
-/*! exports provided: default */
+/*! exports provided: favMeals, addMeal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let favMeals = [];
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "favMeals", function() { return favMeals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addMeal", function() { return addMeal; });
+const favMeals = [];
 
 function addMeal(text) {
   const meal = {
@@ -130,7 +132,7 @@ function addMeal(text) {
 
 
 
-  /* harmony default export */ __webpack_exports__["default"] = ({ favMeals, addMeal });
+
 
 /***/ }),
 
@@ -306,7 +308,7 @@ form.addEventListener(
 
     const text = input.value.trim();
     if (text !== "") {
-      Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["default"])(text);
+      Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["addMeal"])(text);
       Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(text);
       input.value = "";
       input.focus();

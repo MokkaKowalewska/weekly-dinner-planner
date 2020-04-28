@@ -1,4 +1,4 @@
-let favMeals = [];
+const favMeals = [];
 
 function addMeal(text) {
   const meal = {
@@ -32,5 +32,4 @@ function addMeal(text) {
 }
 
 
-
-  export default { favMeals, addMeal };
+export { favMeals, addMeal };
