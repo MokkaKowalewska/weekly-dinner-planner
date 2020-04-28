@@ -42,7 +42,7 @@
       </div>
       <div class="letsPlan animated bounceInRight">
         <h2 class="letsPlan__title sectionTitle">let's plan!</h2>
-        <form class="form" method="POST">
+        <form class="letsPlan__form" method="POST">
           <div class="letsPlan__grid" id="letsPlan">
             <label for="mon" class="day"></label>
             <select id="mon" class="selectMeal box">
@@ -85,6 +85,7 @@
               pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
               required
             />
+            <p class="form__errorMsg"></p>
             <div class="form__permission">
               <input
                 type="checkbox"

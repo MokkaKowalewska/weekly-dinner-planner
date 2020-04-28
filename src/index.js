@@ -1,4 +1,5 @@
 import getRecipies from "./fetch-api";
+import ValidateForm from "./form-validation";
 
 require("./send-email.js");
 
@@ -120,3 +121,14 @@ const week = [];
     );
   }
 }());
+
+//validation
+
+const form = document.querySelector(".letsPlan__form");
+const messages = {
+  valueMissing: "Oh noes, this field cannot be empty!",
+  typeMismatch: "It doesn't look like email address...",
+  patternMismatch: "It doesn't look like email address...",
+  check: "Check!",
+}
+new ValidateForm(form, form__email, form__errorMsg, messages);

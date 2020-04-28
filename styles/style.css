@@ -179,7 +179,12 @@ body,
 
 .sendEmail__permission {
   display: flex;
+  flex-wrap: nowrap;
   margin: 10px auto;
+}
+
+.permission__checkbox {
+  display: block;
 }
 
 .permission__label {
@@ -187,6 +192,10 @@ body,
   display: block;
   font-size: 0.5rem;
   line-height: 0.5rem;
+}
+
+.form__errorMsg:empty {
+  display: none;
 }
 
 /* getInspired section */
