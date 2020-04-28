@@ -40,14 +40,12 @@ export default class ValidateForm {
 
 
   realtimeValidation() {
-    this.inputs.forEach((input) => {
-      input.addEventListener(
-        "blur", (e) => {
-          this.inputsValidation(e.target);
-        },
-        false,
-      );
-    });
+    this.input.addEventListener(
+      "blur", (e) => {
+        this.inputsValidation(e.target);
+      },
+      false,
+    );
   }
 
 
@@ -55,12 +53,9 @@ export default class ValidateForm {
     this.form.addEventListener(
       "submit", (e) => {
         e.preventDefault();
-        console.log(this.inputs);
-        this.inputs.forEach((input) => {
-          this.inputsValidation(input);
-        });
-        // if validity check is ok - sendEmail
+        inputsValidation(this.input);
       }, false,
     );
+    // if validity check is ok - sendEmail
   }
 }

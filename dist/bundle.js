@@ -130,6 +130,82 @@ const getRecipies = async (keyword = "dinner") => {
 
 /***/ }),
 
+/***/ "./src/form-validation.js":
+/*!********************************!*\
+  !*** ./src/form-validation.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ValidateForm; });
+/* harmony import */ var _send_email__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-email */ "./src/send-email.js");
+/* eslint-disable guard-for-in */
+
+
+class ValidateForm {
+  constructor(form, inputsClassName, errorMsgClassName, messages) {
+    this.form = form;
+    this.inputs = form.querySelector(inputsClassName);
+    this.errorMsgList = document.querySelector(errorMsgClassName);
+    this.messages = messages;
+    this.noValidate();
+    this.realtimeValidation();
+    this.validateOnSubmit();
+  }
+
+  noValidate() {
+    this.form.setAttribute("novalidate", true);
+  }
+
+  displayErrors(inputValidated, violetion) {
+    const input = inputValidated;
+    input.nextElementSibling.textContent = this.messages[violetion];
+    input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
+  }
+
+  inputsValidation(testedInput) {
+    const { validity } = testedInput;
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const violetion in validity) {
+      if (validity[violetion] === true && violetion !== "valid") {
+        this.displayErrors(testedInput, violetion);
+        testedInput.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+        return;
+      }
+
+      this.displayErrors(testedInput, "check");
+      testedInput.nextElementSibling.style.webkitTextFillColor = "#5eb15e";
+    }
+  }
+
+
+  realtimeValidation() {
+    this.input.addEventListener(
+      "blur", (e) => {
+        this.inputsValidation(e.target);
+      },
+      false,
+    );
+  }
+
+
+  validateOnSubmit() {
+    this.form.addEventListener(
+      "submit", (e) => {
+        e.preventDefault();
+        inputsValidation(this.input);
+      }, false,
+    );
+    // if validity check is ok - sendEmail
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -140,6 +216,8 @@ const getRecipies = async (keyword = "dinner") => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
+/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
+
 
 
 __webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
@@ -262,6 +340,18 @@ const week = [];
     );
   }
 }());
+
+// validation
+
+const emailForm = document.querySelector(".letsPlan__form");
+const messages = {
+  valueMissing: "Oh noes, this field cannot be empty!",
+  typeMismatch: "It doesn't look like email address...",
+  patternMismatch: "It doesn't look like email address...",
+  check: "Check!",
+};
+
+new _form_validation__WEBPACK_IMPORTED_MODULE_1__["default"](emailForm, form__email, form__errorMsg, messages);
 
 
 /***/ }),
