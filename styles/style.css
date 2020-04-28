@@ -191,6 +191,12 @@ body,
   font-size: 0.8rem;
 }
 
+.form__p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
 .form__email {
   margin: 5px;
 }
