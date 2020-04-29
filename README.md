@@ -15,7 +15,7 @@ Project is created with:
 Project is: _in progress_.
 
 ## Sources
-This app is inspired by Freshman's post "How to build a Todo List App with JavaScript"
+This app was inspired by Freshman's post "How to build a Todo List App with JavaScript"
 (https://freshman.tech/todo-list/).
 
 ## Contact
