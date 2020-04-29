@@ -23,10 +23,9 @@ function addMeal(text) {
   selects.forEach((select) => {
     select.insertAdjacentHTML(
       "beforeend",
-      `<option data-key="${s.id}">${s.text}</option>`,
+      `<option data-key="${meal.id}">${meal.text}</option>`,
     );
   });
 }
-
 
 export default addMeal;

@@ -120,11 +120,10 @@ function addMeal(text) {
   selects.forEach((select) => {
     select.insertAdjacentHTML(
       "beforeend",
-      `<option data-key="${s.id}">${s.text}</option>`,
+      `<option data-key="${meal.id}">${meal.text}</option>`,
     );
   });
 }
-
 
 /* harmony default export */ __webpack_exports__["default"] = (addMeal);
 
@@ -169,7 +168,6 @@ const getRecipies = async (keyword = "dinner") => {
   }
 };
 
-
 /* harmony default export */ __webpack_exports__["default"] = (getRecipies);
 
 
@@ -185,8 +183,6 @@ const getRecipies = async (keyword = "dinner") => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _send_email__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-email */ "./src/send-email.js");
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 
 
 class ValidateForm {
@@ -223,7 +219,6 @@ class ValidateForm {
     const { validity } = testedInput;
 
     if (!testedInput.checkValidity()) {
-      // eslint-disable-next-line prefer-const
       for (let violetion in validity) {
         if (validity[violetion] === true && violetion !== "valid") {
           this.displayErrors(testedInput, violetion);
@@ -294,7 +289,6 @@ form.addEventListener(
   (event) => {
     event.preventDefault();
     const input = document.querySelector(".favMeals__input");
-
     const text = input.value.trim();
     if (text !== "") {
       Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["default"])(text);
@@ -306,7 +300,7 @@ form.addEventListener(
   false,
 );
 
-// form-validation
+// email-form validation
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",
@@ -330,8 +324,6 @@ new _form_validation__WEBPACK_IMPORTED_MODULE_2__["default"](emailForm, ".valida
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 function sendEmail() {
-  console.log("hello from sendEmail");
-
   const status = document.querySelector(".form__status");
   const submitBtn = document.querySelector(".form__btn");
   const emailWrapper = document.querySelector(".emailWrapper");
@@ -344,9 +336,9 @@ function sendEmail() {
 
   let message = "";
 
-  for (let i = 0; i < days.length; i++) {
-    message += `${days[i].textContent} - ${meals[i].value}</br>`;
-  }
+  days.forEach((day, i) => {
+    message += `${day.textContent} - ${meals[i].value}<br>`;
+  });
 
   const formdata = new FormData();
   formdata.append("email", email.value);
@@ -355,7 +347,7 @@ function sendEmail() {
   const ajax = new XMLHttpRequest();
   ajax.open("POST", "send-email.php", true);
   ajax.send(formdata);
-  ajax.onreadystatechange = function () {
+  ajax.onreadystatechange = () => {
     if (ajax.readyState === 4 && ajax.status === 200) {
       if (ajax.responseText === "success") {
         status.innerHTML = ajax.responseText;

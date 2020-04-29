@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 import sendEmail from "./send-email";
 
 class ValidateForm {
@@ -36,7 +34,6 @@ class ValidateForm {
     const { validity } = testedInput;
 
     if (!testedInput.checkValidity()) {
-      // eslint-disable-next-line prefer-const
       for (let violetion in validity) {
         if (validity[violetion] === true && violetion !== "valid") {
           this.displayErrors(testedInput, violetion);

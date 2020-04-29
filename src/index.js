@@ -12,7 +12,6 @@ form.addEventListener(
   (event) => {
     event.preventDefault();
     const input = document.querySelector(".favMeals__input");
-
     const text = input.value.trim();
     if (text !== "") {
       addMeal(text);
@@ -24,7 +23,7 @@ form.addEventListener(
   false,
 );
 
-// form-validation
+// email-form validation
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",

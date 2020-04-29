@@ -27,5 +27,4 @@ const getRecipies = async (keyword = "dinner") => {
   }
 };
 
-
 export default getRecipies;

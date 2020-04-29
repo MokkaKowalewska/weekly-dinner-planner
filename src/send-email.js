@@ -1,6 +1,4 @@
 function sendEmail() {
-  console.log("hello from sendEmail");
-
   const status = document.querySelector(".form__status");
   const submitBtn = document.querySelector(".form__btn");
   const emailWrapper = document.querySelector(".emailWrapper");
@@ -13,9 +11,9 @@ function sendEmail() {
 
   let message = "";
 
-  for (let i = 0; i < days.length; i++) {
-    message += `${days[i].textContent} - ${meals[i].value}</br>`;
-  }
+  days.forEach((day, i) => {
+    message += `${day.textContent} - ${meals[i].value}<br>`;
+  });
 
   const formdata = new FormData();
   formdata.append("email", email.value);
@@ -24,7 +22,7 @@ function sendEmail() {
   const ajax = new XMLHttpRequest();
   ajax.open("POST", "send-email.php", true);
   ajax.send(formdata);
-  ajax.onreadystatechange = function () {
+  ajax.onreadystatechange = () => {
     if (ajax.readyState === 4 && ajax.status === 200) {
       if (ajax.responseText === "success") {
         status.innerHTML = ajax.responseText;
