@@ -90,13 +90,11 @@
 /*!*************************!*\
   !*** ./src/add-meal.js ***!
   \*************************/
-/*! exports provided: favMeals, addMeal */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "favMeals", function() { return favMeals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addMeal", function() { return addMeal; });
 const favMeals = [];
 
 function addMeal(text) {
@@ -131,7 +129,7 @@ function addMeal(text) {
 }
 
 
-
+/* harmony default export */ __webpack_exports__["default"] = (addMeal);
 
 
 /***/ }),
@@ -189,7 +187,6 @@ const getRecipies = async (keyword = "dinner") => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ValidateForm; });
 /* harmony import */ var _send_email__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-email */ "./src/send-email.js");
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
@@ -212,7 +209,6 @@ class ValidateForm {
 
   displayErrors(inputValidated, violetion) {
     const input = inputValidated;
-    console.dir(input);
 
     if (input.type === "checkbox") {
       input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
@@ -238,11 +234,8 @@ class ValidateForm {
       }
       return;
     }
-
-
     this.displayErrors(testedInput, "check");
   }
-
 
   realtimeValidation() {
     this.inputs.forEach((input) => {
@@ -255,7 +248,6 @@ class ValidateForm {
     });
   }
 
-
   validateOnSubmit() {
     this.form.addEventListener(
       "submit", (e) => {
@@ -266,12 +258,14 @@ class ValidateForm {
         });
 
         if (this.inputs[0].checkValidity() && this.inputs[1].checkValidity()) {
-          Object(_send_email__WEBPACK_IMPORTED_MODULE_0__["sendEmail"])();
+          Object(_send_email__WEBPACK_IMPORTED_MODULE_0__["default"])();
         }
       }, false,
     );
   }
 }
+
+/* harmony default export */ __webpack_exports__["default"] = (ValidateForm);
 
 
 /***/ }),
@@ -288,13 +282,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 /* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
 /* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
+/* harmony import */ var _show_dates__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-dates */ "./src/show-dates.js");
 
 
 
 
-__webpack_require__(/*! ./send-email.js */ "./src/send-email.js");
 
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_show_dates__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 
 // add a meal to "favourite meals" and "let's plan" sections
@@ -308,7 +303,7 @@ form.addEventListener(
 
     const text = input.value.trim();
     if (text !== "") {
-      Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["addMeal"])(text);
+      Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["default"])(text);
       Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(text);
       input.value = "";
       input.focus();
@@ -318,37 +313,7 @@ form.addEventListener(
 );
 
 
-const week = [];
-
-(function getDates() {
-  const today = new Date();
-
-
-  for (let i = 1; i <= 7; i++) {
-    const monday = today.getDate() - today.getDay() + i;
-    const options = {
-      weekday: "short", year: "numeric", month: "long", day: "numeric",
-    };
-    const day = new Date(today.setDate(monday)).toLocaleDateString("en-EN", options);
-    week.push(day);
-  }
-}());
-
-(function showDates() {
-  const days = document.querySelectorAll(".day");
-
-  for (let i = 0; i < week.length; i++) {
-    days[i].insertAdjacentHTML(
-      "beforeend",
-      `
-<span>${week[i]}</span>
-  `,
-    );
-  }
-}());
-
-// validation
-
+// form-validation
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",
@@ -366,14 +331,11 @@ new _form_validation__WEBPACK_IMPORTED_MODULE_2__["default"](emailForm, ".valida
 /*!***************************!*\
   !*** ./src/send-email.js ***!
   \***************************/
-/*! exports provided: sendEmail */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendEmail", function() { return sendEmail; });
-const form = document.querySelector(".form");
-
 function sendEmail() {
   console.log("hello from sendEmail");
 
@@ -413,7 +375,50 @@ function sendEmail() {
   };
 }
 
+/* harmony default export */ __webpack_exports__["default"] = (sendEmail);
 
+
+/***/ }),
+
+/***/ "./src/show-dates.js":
+/*!***************************!*\
+  !*** ./src/show-dates.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const week = [];
+
+function getDates() {
+  const today = new Date();
+
+  for (let i = 1; i <= 7; i++) {
+    const monday = today.getDate() - today.getDay() + i;
+    const options = {
+      weekday: "short", year: "numeric", month: "long", day: "numeric",
+    };
+    const day = new Date(today.setDate(monday)).toLocaleDateString("en-EN", options);
+    week.push(day);
+  }
+}
+
+function showDates() {
+  const days = document.querySelectorAll(".day");
+
+  getDates();
+
+  //   week.forEach()
+  for (let i = 0; i < week.length; i++) {
+    days[i].insertAdjacentHTML(
+      "beforeend",
+      `<span>${week[i]}</span>`,
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (showDates);
 
 
 /***/ })

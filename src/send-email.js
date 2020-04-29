@@ -1,5 +1,3 @@
-const form = document.querySelector(".form");
-
 function sendEmail() {
   console.log("hello from sendEmail");
 
@@ -39,4 +37,4 @@ function sendEmail() {
   };
 }
 
-export { sendEmail };
+export default sendEmail;

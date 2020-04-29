@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-import { sendEmail } from "./send-email";
+import sendEmail from "./send-email";
 
-export default class ValidateForm {
+class ValidateForm {
   constructor(form, inputsClassName, errorMsgClassName, messages) {
     this.form = form;
     this.inputs = form.querySelectorAll(inputsClassName);
@@ -19,7 +19,6 @@ export default class ValidateForm {
 
   displayErrors(inputValidated, violetion) {
     const input = inputValidated;
-    console.dir(input);
 
     if (input.type === "checkbox") {
       input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
@@ -45,11 +44,8 @@ export default class ValidateForm {
       }
       return;
     }
-
-
     this.displayErrors(testedInput, "check");
   }
-
 
   realtimeValidation() {
     this.inputs.forEach((input) => {
@@ -61,7 +57,6 @@ export default class ValidateForm {
       );
     });
   }
-
 
   validateOnSubmit() {
     this.form.addEventListener(
@@ -79,3 +74,5 @@ export default class ValidateForm {
     );
   }
 }
+
+export default ValidateForm;

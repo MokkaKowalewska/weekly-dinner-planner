@@ -32,4 +32,4 @@ function addMeal(text) {
 }
 
 
-export { favMeals, addMeal };
+export default addMeal;
