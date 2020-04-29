@@ -16,9 +16,12 @@ html {
 }
 
 body {
-  width: 100vw;
-  background: no-repeat center/100% url(../images/wdp-background.png);
-  background-attachment: fixed;
+  background: url(../images/wdp-background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 body,
@@ -65,6 +68,7 @@ body,
     font-size: 2rem;
     margin: 30px auto;
   }
+  ,
   .favMeals,
   .letsPlan {
     margin: 20px auto;
@@ -205,6 +209,10 @@ body,
   margin: 10px auto;
 }
 
+.form__errorMsg {
+  background: rgba(255, 255, 255, 0.7);
+}
+
 .form__errorMsg:empty {
   display: none;
 }
@@ -221,20 +229,19 @@ body,
 @media (min-width: 769px) {
   .getInspired__recipies {
     display: grid;
-    columns: repeat(3, 100px);
+    grid-template-columns: repeat(3, 20vw);
     justify-items: center;
     justify-content: center;
-    grid-template: auto / repeat(3, 20vw);
     gap: 5px;
     margin: 20px auto;
   }
 
   .recipe {
-    width: 20vw;
+    width: 18vw;
   }
 
   .recipe__img {
-    width: 18vw;
+    width: 15vw;
   }
 
   .recipe__link {
