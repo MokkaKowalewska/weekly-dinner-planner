@@ -104,7 +104,6 @@ function addMeal(text) {
   };
   favMeals.push(meal);
 
-
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");
   ul.insertAdjacentHTML(
@@ -117,15 +116,13 @@ function addMeal(text) {
   `,
   );
 
-  const selectMeal = document.querySelectorAll(".selectMeal");
-  for (let j = 0; j < selectMeal.length; j++) {
-    selectMeal[j].insertAdjacentHTML(
+  const selects = document.querySelectorAll(".selectMeal");
+  selects.forEach((select) => {
+    select.insertAdjacentHTML(
       "beforeend",
-      `
-  <option data-key="${meal.id}">${meal.text}</option>
-  `,
+      `<option data-key="${s.id}">${s.text}</option>`,
     );
-  }
+  });
 }
 
 
