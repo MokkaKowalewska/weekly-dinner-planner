@@ -18,13 +18,12 @@ function showDates() {
 
   getDates();
 
-  //   week.forEach()
-  for (let i = 0; i < week.length; i++) {
-    days[i].insertAdjacentHTML(
+  days.forEach((day, i) => {
+    day.insertAdjacentHTML(
       "beforeend",
       `<span>${week[i]}</span>`,
     );
-  }
+  });
 }
 
 export default showDates;

@@ -6,10 +6,7 @@ import showDates from "./show-dates";
 getRecipies();
 showDates();
 
-
-// add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
-
 form.addEventListener(
   "submit",
   (event) => {
@@ -26,7 +23,6 @@ form.addEventListener(
   },
   false,
 );
-
 
 // form-validation
 const emailForm = document.querySelector(".letsPlan__form");

@@ -291,10 +291,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_show_dates__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
-
-// add a meal to "favourite meals" and "let's plan" sections
 const form = document.querySelector(".favMeals__form");
-
 form.addEventListener(
   "submit",
   (event) => {
@@ -311,7 +308,6 @@ form.addEventListener(
   },
   false,
 );
-
 
 // form-validation
 const emailForm = document.querySelector(".letsPlan__form");
@@ -409,13 +405,12 @@ function showDates() {
 
   getDates();
 
-  //   week.forEach()
-  for (let i = 0; i < week.length; i++) {
-    days[i].insertAdjacentHTML(
+  days.forEach((day, i) => {
+    day.insertAdjacentHTML(
       "beforeend",
       `<span>${week[i]}</span>`,
     );
-  }
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (showDates);
