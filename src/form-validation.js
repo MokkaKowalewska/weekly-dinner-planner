@@ -58,14 +58,16 @@ class ValidateForm {
   validateOnSubmit() {
     this.form.addEventListener(
       "submit", (e) => {
+        const inputsArr = Array.from(this.inputs);
+
         e.preventDefault();
 
-        this.inputs.forEach((input) => {
+        inputsArr.forEach((input) => {
           this.inputsValidation(input);
         });
 
-        if (this.inputs[0].checkValidity() && this.inputs[1].checkValidity()) {
-          sendEmail();
+        if (inputsArr.every((input) => input.checkValidity() === true)) {
+          submitForm();
         }
       }, false,
     );
