@@ -9,8 +9,8 @@ showDates();
 const form = document.querySelector(".favMeals__form");
 form.addEventListener(
   "submit",
-  (event) => {
-    event.preventDefault();
+  (e) => {
+    e.preventDefault();
     const input = document.querySelector(".favMeals__input");
     const text = input.value.trim();
     if (text !== "") {

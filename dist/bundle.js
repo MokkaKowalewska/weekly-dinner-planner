@@ -103,6 +103,7 @@ function addMeal(text) {
     id: Date.now(),
   };
   favMeals.push(meal);
+  localStorage.setItem(`${meal.id}`, `${meal.text}`);
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");
@@ -243,14 +244,16 @@ class ValidateForm {
   validateOnSubmit() {
     this.form.addEventListener(
       "submit", (e) => {
+        const inputsArr = Array.from(this.inputs);
+
         e.preventDefault();
 
-        this.inputs.forEach((input) => {
+        inputsArr.forEach((input) => {
           this.inputsValidation(input);
         });
 
-        if (this.inputs[0].checkValidity() && this.inputs[1].checkValidity()) {
-          Object(_send_email__WEBPACK_IMPORTED_MODULE_0__["default"])();
+        if (inputsArr.every((input) => input.checkValidity() === true)) {
+          submitForm();
         }
       }, false,
     );
@@ -286,8 +289,8 @@ Object(_show_dates__WEBPACK_IMPORTED_MODULE_3__["default"])();
 const form = document.querySelector(".favMeals__form");
 form.addEventListener(
   "submit",
-  (event) => {
-    event.preventDefault();
+  (e) => {
+    e.preventDefault();
     const input = document.querySelector(".favMeals__input");
     const text = input.value.trim();
     if (text !== "") {
