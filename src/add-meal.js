@@ -1,3 +1,5 @@
+import getRecipies from "./fetch-api";
+
 const favMeals = [];
 
 function addMeal(text) {
@@ -29,4 +31,23 @@ function addMeal(text) {
   });
 }
 
-export default addMeal;
+function handleAddMeal() {
+  const form = document.querySelector(".favMeals__form");
+  form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      const input = document.querySelector(".favMeals__input");
+      const text = input.value.trim();
+      if (text !== "") {
+        addMeal(text);
+        getRecipies(text);
+        input.value = "";
+        input.focus();
+      }
+    },
+    false,
+  );
+}
+
+export default handleAddMeal;

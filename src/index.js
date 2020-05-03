@@ -1,29 +1,12 @@
-import getRecipies from "./fetch-api";
-import addMeal from "./add-meal";
-import ValidateForm from "./form-validation";
 import showDates from "./show-dates";
+import getRecipies from "./fetch-api";
+import handleAddMeal from "./add-meal";
+import ValidateForm from "./form-validation";
 
-getRecipies();
 showDates();
+getRecipies();
+handleAddMeal();
 
-const form = document.querySelector(".favMeals__form");
-form.addEventListener(
-  "submit",
-  (e) => {
-    e.preventDefault();
-    const input = document.querySelector(".favMeals__input");
-    const text = input.value.trim();
-    if (text !== "") {
-      addMeal(text);
-      getRecipies(text);
-      input.value = "";
-      input.focus();
-    }
-  },
-  false,
-);
-
-// email-form validation
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",

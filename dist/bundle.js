@@ -95,6 +95,9 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
+
+
 const favMeals = [];
 
 function addMeal(text) {
@@ -126,7 +129,26 @@ function addMeal(text) {
   });
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (addMeal);
+function handleAddMeal() {
+  const form = document.querySelector(".favMeals__form");
+  form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      const input = document.querySelector(".favMeals__input");
+      const text = input.value.trim();
+      if (text !== "") {
+        addMeal(text);
+        Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(text);
+        input.value = "";
+        input.focus();
+      }
+    },
+    false,
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (handleAddMeal);
 
 
 /***/ }),
@@ -205,13 +227,13 @@ class ValidateForm {
     const input = inputValidated;
 
     if (input.type === "checkbox") {
-      input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+      input.parentNode.nextElementSibling.style.color = "#ff2424";
       input.parentNode.nextElementSibling.textContent = this.messages[violetion];
       input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
       return;
     }
 
-    input.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+    input.nextElementSibling.style.color = "#ff2424";
     input.nextElementSibling.textContent = this.messages[violetion];
     input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
   }
@@ -233,7 +255,7 @@ class ValidateForm {
   realtimeValidation() {
     this.inputs.forEach((input) => {
       input.addEventListener(
-        "blur", (e) => {
+        "change", (e) => {
           this.inputsValidation(e.target);
         },
         false,
@@ -253,7 +275,7 @@ class ValidateForm {
         });
 
         if (inputsArr.every((input) => input.checkValidity() === true)) {
-          submitForm();
+          Object(_send_email__WEBPACK_IMPORTED_MODULE_0__["default"])();
         }
       }, false,
     );
@@ -274,36 +296,19 @@ class ValidateForm {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
-/* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
-/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
-/* harmony import */ var _show_dates__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-dates */ "./src/show-dates.js");
+/* harmony import */ var _show_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./show-dates */ "./src/show-dates.js");
+/* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
+/* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
+/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
 
 
 
 
 
-Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])();
-Object(_show_dates__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_show_dates__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_fetch_api__WEBPACK_IMPORTED_MODULE_1__["default"])();
+Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
-const form = document.querySelector(".favMeals__form");
-form.addEventListener(
-  "submit",
-  (e) => {
-    e.preventDefault();
-    const input = document.querySelector(".favMeals__input");
-    const text = input.value.trim();
-    if (text !== "") {
-      Object(_add_meal__WEBPACK_IMPORTED_MODULE_1__["default"])(text);
-      Object(_fetch_api__WEBPACK_IMPORTED_MODULE_0__["default"])(text);
-      input.value = "";
-      input.focus();
-    }
-  },
-  false,
-);
-
-// email-form validation
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
   valueMissing: "Oh noes, this field cannot be empty!",
@@ -312,7 +317,7 @@ const messages = {
   check: "",
 };
 
-new _form_validation__WEBPACK_IMPORTED_MODULE_2__["default"](emailForm, ".validate", ".form__errorMsg", messages);
+new _form_validation__WEBPACK_IMPORTED_MODULE_3__["default"](emailForm, ".validate", ".form__errorMsg", messages);
 
 
 /***/ }),
