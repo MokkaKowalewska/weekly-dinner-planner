@@ -4,9 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,22 +19,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
   overflow-x: hidden;
-}
-
-body,
-.favMeals__input,
-.favMeals__button,
-.selectMeal,
-.favMeals__li,
-.form__email,
-.form__btn {
-  font-family: "Quicksand", sans-serif;
-  font-size: 1rem;
-  color: rgb(28, 14, 78);
-}
-
-/* zamienić powyższe na poniższą klasę */
-.inputBtnFont {
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   color: rgb(28, 14, 78);
@@ -48,19 +29,22 @@ body,
   min-height: 30px;
   border-radius: 20px;
   border: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  color: rgb(28, 14, 78);
 }
 
 .title {
   text-align: center;
-  animation-delay: 1s;
+  animation-delay: .3s;
 }
 
 .favMeals {
-  animation-delay: 0.5s;
+  animation-delay: .1s;
 }
 
 .letsPlan {
-  animation-delay: 0.8s;
+  animation-delay: .2s;
 }
 
 @media (max-width: 999px) {
@@ -210,7 +194,7 @@ body,
 }
 
 .form__errorMsg {
-  background: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
 }
 
 .form__errorMsg:empty {
