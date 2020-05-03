@@ -22,7 +22,7 @@ function addMeal(text) {
   `,
   );
 
-  const selects = document.querySelectorAll(".select");
+  const selects = document.querySelectorAll(".letsPlan__select");
   selects.forEach((select) => {
     select.insertAdjacentHTML(
       "beforeend",

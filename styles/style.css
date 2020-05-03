@@ -65,6 +65,10 @@ body {
     padding: 0 50px 50px 50px;
     width: 70vw;
   }
+
+  /* .letsPlan__select {
+    width: 70%;
+  } */
 }
 
 /* All boxes, inputs and selects styles */
@@ -87,16 +91,21 @@ body {
   background-color: rgb(143, 69, 60);
 }
 
-.select {
+.letsPlan__select {
   background-color: #f1948a;
   padding-left: 10px;
   cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
 }
 
 .btn:focus,
 .btn:hover,
-.select:focus,
-.select:hover {
+.letsPlan__select:focus,
+.letsPlan__select:hover {
   outline: none;
   background-color: rgb(238, 195, 190);
   cursor: pointer;
@@ -109,7 +118,7 @@ body {
 }
 
 .input:focus,
-.select:focus {
+.letsPlan__select:focus {
   outline: none;
   border: 1px solid rgb(0, 211, 141);
 }
