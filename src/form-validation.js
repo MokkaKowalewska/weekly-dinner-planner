@@ -19,13 +19,13 @@ class ValidateForm {
     const input = inputValidated;
 
     if (input.type === "checkbox") {
-      input.parentNode.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+      input.parentNode.nextElementSibling.style.color = "#ff2424";
       input.parentNode.nextElementSibling.textContent = this.messages[violetion];
       input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
       return;
     }
 
-    input.nextElementSibling.style.webkitTextFillColor = "#ff2424";
+    input.nextElementSibling.style.color = "#ff2424";
     input.nextElementSibling.textContent = this.messages[violetion];
     input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
   }
@@ -47,7 +47,7 @@ class ValidateForm {
   realtimeValidation() {
     this.inputs.forEach((input) => {
       input.addEventListener(
-        "blur", (e) => {
+        "change", (e) => {
           this.inputsValidation(e.target);
         },
         false,
@@ -67,7 +67,7 @@ class ValidateForm {
         });
 
         if (inputsArr.every((input) => input.checkValidity() === true)) {
-          submitForm();
+          sendEmail();
         }
       }, false,
     );
