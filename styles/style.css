@@ -91,17 +91,6 @@ body {
   background-color: rgb(143, 69, 60);
 }
 
-.letsPlan__select {
-  background-color: #f1948a;
-  padding-left: 10px;
-  cursor: pointer;
-  width: 100%;
-  overflow: hidden;
-  white-space: pre;
-  text-overflow: ellipsis;
-  -webkit-appearance: none;
-}
-
 .btn:focus,
 .btn:hover,
 .letsPlan__select:focus,
@@ -124,6 +113,21 @@ body {
 }
 
 /* Favourite meals list section */
+.favMeals__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favMeals__input {
+  width: 75%;
+}
+
+.favMeals__button {
+  width: 20%;
+}
+
+
+
 
 .favMeals__ul {
   margin: 10px auto;
@@ -131,14 +135,14 @@ body {
 }
 
 .favMeals__li {
-  list-style-type: none;
-  width: 75%;
-  background-color: rgba(191, 253, 250, 1);
-  margin: 3px auto;
+  width: 100%;
+  margin: 5px auto;
   padding: 5px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(191, 253, 250, 1);
+  list-style-type: none;
   animation-duration: .2s;
 }
 
@@ -157,6 +161,17 @@ body {
   display: grid;
   gap: 5px 15px;
   align-items: center;
+}
+
+.letsPlan__select {
+  background-color: #f1948a;
+  padding-left: 10px;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
 }
 
 .emailWrapper {
