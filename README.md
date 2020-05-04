@@ -7,14 +7,14 @@ It's a simple app, made to help planning dinners for current week. Create a list
 
 ## Technologies
 Project is created with:
-- HTML
-- CSS
+1. HTML
+2. CSS
 * Animated.css
-- JS
+3. JS
 * ES6 modules (using webpack)
 * API
 * AJAX
-- a little bit of PHP (send email)
+4. a little bit of PHP (send email)
 
 
 ## Status
