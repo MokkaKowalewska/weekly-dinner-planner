@@ -337,7 +337,7 @@ function sendEmail() {
   const emailWrapper = document.querySelector(".emailWrapper");
   const email = document.getElementById("email");
   const days = document.querySelectorAll(".day");
-  const meals = document.querySelectorAll(".select");
+  const meals = document.querySelectorAll(".letsPlan__select");
 
   submitBtn.disabled = true;
   status.innerHTML = "sending...";
