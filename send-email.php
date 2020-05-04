@@ -1,8 +1,8 @@
 <?php
 
 
-ini_set("SMTP", "serwer1940016.home.pl");
-ini_set("sendmail_from", "hello@monikakowalewska.pl");
+ini_set("SMTP", "smtp_server_here");
+ini_set("sendmail_from", "mail_here");
 ini_set("smtp_port", "465");
 
 
@@ -10,7 +10,7 @@ if(isset($_POST["email"]) && isset($_POST["message"])) {
     $email = $_POST["email"];
     $message = nl2br($_POST["message"]);
     $to = $email;
-    $from = "hello@monikakowalewska.pl";
+    $from = "mail_here";
     $subject = "Weekly Dinner Planner - Your dinner plan for this week";
     $content = "<html>
     <head></head>
