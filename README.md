@@ -14,7 +14,7 @@ Project is created with:
 * ES6 modules (using webpack)
 * API
 * AJAX
-4. a little bit of PHP (send email)
+4. A little bit of PHP (send email)
 
 
 ## Status
