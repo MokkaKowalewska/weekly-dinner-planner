@@ -1,15 +1,21 @@
 # Weekly dinner planner
-Web application of my own idea, my very first app created entirely by me to practice JS and CSS.
+Web application of my own idea, my very first app created to practice JS and CSS.
 
 It's a simple app, made to help planning dinners for current week. Create a list of your favourite meals, assign them to chosen day of a week and send it to Your email! No idea what's for dinner today? Take a look at "Get inspired" section!
 
-### [DEMO](https://mokkakowalewska.github.io/weekly-dinner-planner)
+### [LIVE](https://weeklydinnerplanner.monikakowalewska.pl)
 
 ## Technologies
 Project is created with:
-* HTML,
-* CSS,
-* JavaScript.
+1. HTML
+2. CSS
+* Animated.css
+3. JS
+* ES6 modules (using webpack)
+* API
+* AJAX
+4. A little bit of PHP (send email)
+
 
 ## Status
 Project is: _in progress_.
