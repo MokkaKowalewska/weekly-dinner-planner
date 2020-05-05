@@ -90,11 +90,12 @@
 /*!*************************!*\
   !*** ./src/add-meal.js ***!
   \*************************/
-/*! exports provided: default, handleAddMeal */
+/*! exports provided: favMeals, handleAddMeal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "favMeals", function() { return favMeals; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleAddMeal", function() { return handleAddMeal; });
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
@@ -149,7 +150,6 @@ function handleAddMeal() {
   );
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (favMeals);
 
 
 
@@ -159,7 +159,7 @@ function handleAddMeal() {
 /*!****************************!*\
   !*** ./src/delete-meal.js ***!
   \****************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function deleteMeal(key) {
-  _add_meal__WEBPACK_IMPORTED_MODULE_0__["default"].filter((mealToDel) => {
+  _add_meal__WEBPACK_IMPORTED_MODULE_0__["favMeals"].filter((mealToDel) => {
     mealToDel.id !== Number(key);
   });
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
@@ -176,7 +176,7 @@ function deleteMeal(key) {
   (Array.from(mealToDel)).map((meal) => meal.remove());
 }
 
-(function deleteBtnClicked() {
+function deleteBtnClicked() {
   const ul = document.querySelector(".favMeals__ul");
 
   ul.addEventListener(
@@ -189,7 +189,9 @@ function deleteMeal(key) {
     },
     true,
   );
-}());
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (deleteBtnClicked);
 
 
 /***/ }),
@@ -352,6 +354,7 @@ __webpack_require__.r(__webpack_exports__);
 Object(_show_dates__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["handleAddMeal"])();
+Object(_delete_meal__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 
 const emailForm = document.querySelector(".letsPlan__form");

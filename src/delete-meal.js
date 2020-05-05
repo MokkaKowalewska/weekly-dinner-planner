@@ -1,4 +1,4 @@
-import favMeals from "./add-meal";
+import { favMeals } from "./add-meal";
 
 function deleteMeal(key) {
   favMeals.filter((mealToDel) => {
@@ -9,7 +9,7 @@ function deleteMeal(key) {
   (Array.from(mealToDel)).map((meal) => meal.remove());
 }
 
-(function deleteBtnClicked() {
+function deleteBtnClicked() {
   const ul = document.querySelector(".favMeals__ul");
 
   ul.addEventListener(
@@ -22,4 +22,6 @@ function deleteMeal(key) {
     },
     true,
   );
-}());
+}
+
+export default deleteBtnClicked;

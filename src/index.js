@@ -1,11 +1,15 @@
 import showDates from "./show-dates";
 import getRecipies from "./fetch-api";
-import handleAddMeal from "./add-meal";
+import { handleAddMeal } from "./add-meal";
+import deleteBtnClicked from "./delete-meal";
 import ValidateForm from "./form-validation";
+
 
 showDates();
 getRecipies();
 handleAddMeal();
+deleteBtnClicked();
+
 
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {

@@ -1,6 +1,6 @@
 import getRecipies from "./fetch-api";
 
-const favMeals = [];
+let favMeals = [];
 
 function addMeal(text) {
   const meal = {
@@ -50,4 +50,4 @@ function handleAddMeal() {
   );
 }
 
-export default handleAddMeal;
+export { favMeals, handleAddMeal };
