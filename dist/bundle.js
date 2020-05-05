@@ -90,15 +90,16 @@
 /*!*************************!*\
   !*** ./src/add-meal.js ***!
   \*************************/
-/*! exports provided: default */
+/*! exports provided: default, handleAddMeal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleAddMeal", function() { return handleAddMeal; });
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
 
-const favMeals = [];
+let favMeals = [];
 
 function addMeal(text) {
   const meal = {
@@ -148,7 +149,47 @@ function handleAddMeal() {
   );
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (handleAddMeal);
+/* harmony default export */ __webpack_exports__["default"] = (favMeals);
+
+
+
+/***/ }),
+
+/***/ "./src/delete-meal.js":
+/*!****************************!*\
+  !*** ./src/delete-meal.js ***!
+  \****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
+
+
+function deleteMeal(key) {
+  _add_meal__WEBPACK_IMPORTED_MODULE_0__["default"].filter((mealToDel) => {
+    mealToDel.id !== Number(key);
+  });
+  const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
+
+  (Array.from(mealToDel)).map((meal) => meal.remove());
+}
+
+(function deleteBtnClicked() {
+  const ul = document.querySelector(".favMeals__ul");
+
+  ul.addEventListener(
+    "click",
+    (event) => {
+      if (event.target.classList.contains("favMeals__deleteBtn")) {
+        const mealKey = event.target.parentElement.dataset.key;
+        deleteMeal(mealKey);
+      }
+    },
+    true,
+  );
+}());
 
 
 /***/ }),
@@ -299,7 +340,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _show_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./show-dates */ "./src/show-dates.js");
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 /* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
-/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
+/* harmony import */ var _delete_meal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./delete-meal */ "./src/delete-meal.js");
+/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./form-validation */ "./src/form-validation.js");
+
+
 
 
 
@@ -307,7 +351,8 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_show_dates__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_1__["default"])();
-Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["handleAddMeal"])();
+
 
 const emailForm = document.querySelector(".letsPlan__form");
 const messages = {
@@ -317,7 +362,7 @@ const messages = {
   check: "",
 };
 
-new _form_validation__WEBPACK_IMPORTED_MODULE_3__["default"](emailForm, ".validate", ".form__errorMsg", messages);
+new _form_validation__WEBPACK_IMPORTED_MODULE_4__["default"](emailForm, ".validate", ".form__errorMsg", messages);
 
 
 /***/ }),
