@@ -1,6 +1,6 @@
 import showDates from "./show-dates";
 import getRecipies from "./fetch-api";
-import { handleAddMeal } from "./add-meal";
+import handleAddMeal from "./add-meal";
 import deleteBtnClicked from "./delete-meal";
 import ValidateForm from "./form-validation";
 

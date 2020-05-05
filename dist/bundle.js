@@ -90,24 +90,19 @@
 /*!*************************!*\
   !*** ./src/add-meal.js ***!
   \*************************/
-/*! exports provided: favMeals, handleAddMeal */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "favMeals", function() { return favMeals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleAddMeal", function() { return handleAddMeal; });
 /* harmony import */ var _fetch_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetch-api */ "./src/fetch-api.js");
 
-
-let favMeals = [];
 
 function addMeal(text) {
   const meal = {
     text,
     id: Date.now(),
   };
-  favMeals.push(meal);
   localStorage.setItem(`${meal.id}`, `${meal.text}`);
 
   // create a meal as li element, create delete button
@@ -150,7 +145,7 @@ function handleAddMeal() {
   );
 }
 
-
+/* harmony default export */ __webpack_exports__["default"] = (handleAddMeal);
 
 
 /***/ }),
@@ -164,13 +159,7 @@ function handleAddMeal() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _add_meal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-meal */ "./src/add-meal.js");
-
-
 function deleteMeal(key) {
-  _add_meal__WEBPACK_IMPORTED_MODULE_0__["favMeals"].filter((mealToDel) => {
-    mealToDel.id !== Number(key);
-  });
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
 
   (Array.from(mealToDel)).map((meal) => meal.remove());
@@ -353,7 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_show_dates__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_fetch_api__WEBPACK_IMPORTED_MODULE_1__["default"])();
-Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["handleAddMeal"])();
+Object(_add_meal__WEBPACK_IMPORTED_MODULE_2__["default"])();
 Object(_delete_meal__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 

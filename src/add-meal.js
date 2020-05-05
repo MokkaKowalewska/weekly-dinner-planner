@@ -1,13 +1,10 @@
 import getRecipies from "./fetch-api";
 
-let favMeals = [];
-
 function addMeal(text) {
   const meal = {
     text,
     id: Date.now(),
   };
-  favMeals.push(meal);
   localStorage.setItem(`${meal.id}`, `${meal.text}`);
 
   // create a meal as li element, create delete button
@@ -50,4 +47,4 @@ function handleAddMeal() {
   );
 }
 
-export { favMeals, handleAddMeal };
+export default handleAddMeal;

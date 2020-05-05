@@ -1,9 +1,4 @@
-import { favMeals } from "./add-meal";
-
 function deleteMeal(key) {
-  favMeals.filter((mealToDel) => {
-    mealToDel.id !== Number(key);
-  });
   const mealToDel = document.querySelectorAll(`[data-key="${key}"]`);
 
   (Array.from(mealToDel)).map((meal) => meal.remove());
