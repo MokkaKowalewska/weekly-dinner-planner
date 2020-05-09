@@ -211,7 +211,7 @@ const getRecipies = async (keyword = "dinner") => {
 
     if (APIrecipies.length === 0) { getRecipies("idea"); return; }
 
-    APIrecipies.forEach((value, i) => {
+    APIrecipies.map((value, i) => {
       imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
       urls[i].textContent = APIrecipies[i].title;
       urls[i].href = APIrecipies[i].sourceUrl;
