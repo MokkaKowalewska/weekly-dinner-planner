@@ -103,7 +103,6 @@ function addMeal(text) {
     text,
     id: Date.now(),
   };
-  localStorage.setItem(`${meal.id}`, `${meal.text}`);
 
   // create a meal as li element, create delete button
   const ul = document.querySelector(".favMeals__ul");
@@ -128,6 +127,7 @@ function addMeal(text) {
 
 function handleAddMeal() {
   const form = document.querySelector(".favMeals__form");
+
   form.addEventListener(
     "submit",
     (e) => {
