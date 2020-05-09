@@ -255,18 +255,18 @@ class ValidateForm {
     this.form.setAttribute("novalidate", true);
   }
 
-  displayErrors(inputValidated, violetion) {
+  displayErrors(inputValidated, violation) {
     const input = inputValidated;
 
     if (input.type === "checkbox") {
       input.parentNode.nextElementSibling.style.color = "#ff2424";
-      input.parentNode.nextElementSibling.textContent = this.messages[violetion];
+      input.parentNode.nextElementSibling.textContent = this.messages[violation];
       input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
       return;
     }
 
     input.nextElementSibling.style.color = "#ff2424";
-    input.nextElementSibling.textContent = this.messages[violetion];
+    input.nextElementSibling.textContent = this.messages[violation];
     input.setAttribute("aria-describedby", `error-for-${inputValidated.id}`);
   }
 
@@ -274,9 +274,9 @@ class ValidateForm {
     const { validity } = testedInput;
 
     if (!testedInput.checkValidity()) {
-      for (let violetion in validity) {
-        if (validity[violetion] === true && violetion !== "valid") {
-          this.displayErrors(testedInput, violetion);
+      for (let violation in validity) {
+        if (validity[violation] === true && violation !== "valid") {
+          this.displayErrors(testedInput, violation);
         }
       }
       return;
