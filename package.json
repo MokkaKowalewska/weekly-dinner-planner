@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "animate.css": "^3.7.2",
+    "dotenv": "^8.2.0",
     "path": "^0.12.7"
   }
 }

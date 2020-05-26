@@ -1,4 +1,6 @@
-const baseURL = "https://api.spoonacular.com/recipes/search?apiKey=0508ba3c86c542ecafd7a4f3f29ed0e1&query=";
+require("dotenv").config();
+
+const baseURL = process.env.API_KEY;
 const imgBaseURL = "https://spoonacular.com/recipeImages/";
 
 const getRecipies = async (keyword = "dinner") => {
@@ -13,7 +15,10 @@ const getRecipies = async (keyword = "dinner") => {
     const imgSize = "240x150";
     const imgType = "jpg";
 
-    if (APIrecipies.length === 0) { getRecipies("idea"); return; }
+    if (APIrecipies.length === 0) {
+      getRecipies("idea");
+      return;
+    }
 
     APIrecipies.map((value, i) => {
       imgs[i].src = `${imgBaseURL}${APIrecipies[i].id}-${imgSize}.${imgType}`;
