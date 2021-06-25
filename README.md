@@ -1,5 +1,7 @@
 # Weekly dinner planner
-Web application of my own idea, my very first app created to practice JS and CSS.
+Web application of my own idea, my very first app created to practice JS and CSS. This project was created to learn and to show my skills, when I was looking for my first junior job.
+
+Simple app, made to help planning dinners for current week. Create a list of your favourite meals, assign them to chosen day of a week and send it to Your email! No idea what's for dinner today? Take a look at "Get inspired" section!
 
 It's a simple app, made to help planning dinners for current week. Create a list of your favourite meals, assign them to chosen day of a week and send it to Your email! No idea what's for dinner today? Take a look at "Get inspired" section!
 
